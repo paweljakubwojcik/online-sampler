@@ -2,8 +2,8 @@
     box-sizing: border-box;
 }
 
-$primaryFontColor: #707070;
-$sideBarColor: #fff;
+$primaryFontColor: #191919;
+$sideBarColor: rgb(255, 255, 255);
 
 body {
     margin: 0;
@@ -12,8 +12,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    background-color: #f6f6f6;
-    font-size: 1vw;
+    background-color:#F8C878;
+    font-size: 16px;
 }
 
 code {
@@ -42,10 +42,10 @@ button {
 
 .App {
     max-width: 100vw;
-    max-height: 100vh;
+    height: 100vh;
     overflow-x: hidden;
     display: grid;
-    grid-template-columns: 1em 12.75em 3fr 3fr;
+    grid-template-columns: 1em 12.5em 3fr 3fr;
     grid-template-rows: 0.8fr 2fr 4fr 0.1fr;
 
     font-family: "Nirmala UI";
@@ -61,7 +61,7 @@ button {
     margin: 2vh 0;
 
     h1 {
-        font-size: 2.625em;
+        font-size: 2em;
         letter-spacing: 0.625rem;
 
         display: inline-block;
@@ -97,6 +97,7 @@ button {
         margin: 10% 1vw;
         a {
             display: inline-block;
+            padding:25px 0;
             position: relative;
             &::after {
                 content: "?";
@@ -105,7 +106,7 @@ button {
                 font-weight: bold;
                 font-size: 6em;
                 opacity: 0.3;
-                top: -0.5em;
+                top: -.3em;
                 transition: transform .5s, opacity .4s;
                 opacity:0;
                 transform: rotateZ(45deg) translate(-150px,150px);
@@ -227,12 +228,14 @@ button {
     justify-self: right;
     align-self: center;
     width: 150%;
-    height: 90%;
+    align-self: stretch;
+    transform: translateX(10%);
     // position: absolute;
     z-index: -1;
 
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 100%;
 
     &--Strings {
         background-image: url("svg/violin.svg");
@@ -242,12 +245,14 @@ button {
     }
     &--Vocals {
         background-image: url("svg/mic.svg");
+        background-size: 70%;
     }
     &--Synth,
     &--Pads {
         background-image: url("svg/synth.svg");
         background-position: top;
         transform: translateX(21%);
+        background-size: 60%;
     }
 }
 

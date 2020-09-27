@@ -8,8 +8,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f6f6f6;
-  font-size: 1vw;
+  background-color: #F8C878;
+  font-size: 16px;
 }
 
 code {
@@ -45,16 +45,16 @@ button:hover {
 
 .App {
   max-width: 100vw;
-  max-height: 100vh;
+  height: 100vh;
   overflow-x: hidden;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1em 12.75em 3fr 3fr;
-      grid-template-columns: 1em 12.75em 3fr 3fr;
+  -ms-grid-columns: 1em 12.5em 3fr 3fr;
+      grid-template-columns: 1em 12.5em 3fr 3fr;
   -ms-grid-rows: 0.8fr 2fr 4fr 0.1fr;
       grid-template-rows: 0.8fr 2fr 4fr 0.1fr;
   font-family: "Nirmala UI";
-  color: #707070;
+  color: #191919;
   position: relative;
 }
 
@@ -69,10 +69,10 @@ button:hover {
 }
 
 .mainHeader h1 {
-  font-size: 2.625em;
+  font-size: 2em;
   letter-spacing: 0.625rem;
   display: inline-block;
-  border-bottom: 1px solid #707070;
+  border-bottom: 1px solid #191919;
   margin: 0;
 }
 
@@ -95,7 +95,7 @@ button:hover {
       grid-template-rows: inherit;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: white;
 }
 
 .sideBar .links {
@@ -119,6 +119,7 @@ button:hover {
 
 .sideBar .links a {
   display: inline-block;
+  padding: 25px 0;
   position: relative;
 }
 
@@ -129,7 +130,7 @@ button:hover {
   font-weight: bold;
   font-size: 6em;
   opacity: 0.3;
-  top: -0.5em;
+  top: -.3em;
   -webkit-transition: opacity .4s, -webkit-transform .5s;
   transition: opacity .4s, -webkit-transform .5s;
   transition: transform .5s, opacity .4s;
@@ -302,10 +303,15 @@ button:hover {
       -ms-grid-row-align: center;
       align-self: center;
   width: 150%;
-  height: 90%;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+  -webkit-transform: translateX(10%);
+          transform: translateX(10%);
   z-index: -1;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 100%;
 }
 
 .backgroundImage--Strings {
@@ -318,6 +324,7 @@ button:hover {
 
 .backgroundImage--Vocals {
   background-image: url("svg/mic.svg");
+  background-size: 70%;
 }
 
 .backgroundImage--Synth, .backgroundImage--Pads {
@@ -325,6 +332,7 @@ button:hover {
   background-position: top;
   -webkit-transform: translateX(21%);
           transform: translateX(21%);
+  background-size: 60%;
 }
 
 .soundUploader {
@@ -333,11 +341,11 @@ button:hover {
   grid-row: 1/3;
   -ms-grid-column: 4;
   grid-column: 4;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+  -ms-grid-column-align: stretch;
+      justify-self: stretch;
 }
 
 .fileInput {
@@ -381,7 +389,14 @@ button:hover {
   color: inherit;
 }
 
+.fileInput__label p {
+  background-color: #fff;
+  padding: 10px 30px;
+  border-radius: 20px;
+}
+
 .fileInput__label img {
+  margin-top: 10px;
   height: 100%;
 }
 
