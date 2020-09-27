@@ -1,0 +1,39 @@
+.page {
+    grid-row: 2/5;
+    grid-column: 3/5;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    h1 {
+        margin: 0;
+    }
+
+    .back {
+        margin: auto auto 5% 5%;
+        position: relative;
+        display: inline-block;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 1px;
+            left: -10px;
+            display: block;
+            width: 1em;
+            height: 1em;
+
+            transform: rotateZ(45deg) translate(0);
+            transition: transform 0.3s;
+
+            border-bottom: 1px solid #343434;
+            border-left: 1px solid #343434;
+        }
+
+        &:hover::before {
+            transform: rotateZ(45deg) translate(-50%, 50%);
+        }
+    }
+}

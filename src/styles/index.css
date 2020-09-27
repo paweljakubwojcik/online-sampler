@@ -117,6 +117,34 @@ button:hover {
   margin: 10% 1vw;
 }
 
+.sideBar .links a {
+  display: inline-block;
+  position: relative;
+}
+
+.sideBar .links a::after {
+  content: "?";
+  position: absolute;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 6em;
+  opacity: 0.3;
+  top: -0.5em;
+  -webkit-transition: opacity .4s, -webkit-transform .5s;
+  transition: opacity .4s, -webkit-transform .5s;
+  transition: transform .5s, opacity .4s;
+  transition: transform .5s, opacity .4s, -webkit-transform .5s;
+  opacity: 0;
+  -webkit-transform: rotateZ(45deg) translate(-150px, 150px);
+          transform: rotateZ(45deg) translate(-150px, 150px);
+}
+
+.sideBar .links a:hover::after {
+  opacity: .3;
+  -webkit-transform: rotateZ(45deg) translate(0, 0);
+          transform: rotateZ(45deg) translate(0, 0);
+}
+
 .sampleMenu {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
@@ -191,6 +219,10 @@ button:hover {
   -ms-grid-column-align: center;
       justify-self: center;
   position: relative;
+  -webkit-transition: font-weight 0.2s, -webkit-transform 0.5s;
+  transition: font-weight 0.2s, -webkit-transform 0.5s;
+  transition: transform 0.5s, font-weight 0.2s;
+  transition: transform 0.5s, font-weight 0.2s, -webkit-transform 0.5s;
 }
 
 .sampleMenu__button::after {
@@ -201,8 +233,8 @@ button:hover {
   position: absolute;
   top: 0;
   left: 50%;
-  -webkit-transform: translateX(-50%) scaleX(1);
-          transform: translateX(-50%) scaleX(1);
+  -webkit-transform: translate(-50%, 0) scaleX(1);
+          transform: translate(-50%, 0) scaleX(1);
   border-bottom: 2px solid #252525;
   -webkit-transition: -webkit-transform 0.5s;
   transition: -webkit-transform 0.5s;
@@ -210,13 +242,23 @@ button:hover {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
+.sampleMenu__button:hover {
+  -webkit-transform: translateY(-5%);
+          transform: translateY(-5%);
+}
+
 .sampleMenu__button:hover::after {
-  -webkit-transform: translateX(-50%) scaleX(2.5);
-          transform: translateX(-50%) scaleX(2.5);
+  -webkit-transform: translate(-50%, 5%) scaleX(2.5);
+          transform: translate(-50%, 5%) scaleX(2.5);
 }
 
 .sampleMenu__button--active {
   font-weight: bold;
+}
+
+.sampleMenu__button--active::after {
+  -webkit-transform: translate(-50%) scaleX(2.5);
+          transform: translate(-50%) scaleX(2.5);
 }
 
 .keyboard {
@@ -371,5 +413,30 @@ button:hover {
 
 .page .back {
   margin: auto auto 5% 5%;
+  position: relative;
+  display: inline-block;
+}
+
+.page .back::before {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: -10px;
+  display: block;
+  width: 1em;
+  height: 1em;
+  -webkit-transform: rotateZ(45deg) translate(0);
+          transform: rotateZ(45deg) translate(0);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  border-bottom: 1px solid #343434;
+  border-left: 1px solid #343434;
+}
+
+.page .back:hover::before {
+  -webkit-transform: rotateZ(45deg) translate(-50%, 50%);
+          transform: rotateZ(45deg) translate(-50%, 50%);
 }
 /*# sourceMappingURL=index.css.map */
