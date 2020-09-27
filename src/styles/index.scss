@@ -21,8 +21,8 @@ a {
     color: inherit;
     text-decoration: none;
     filter: brightness(1);
-    transition: filter .2s;
-    &:hover{
+    transition: filter 0.2s;
+    &:hover {
         filter: brightness(1.2);
     }
 }
@@ -52,7 +52,7 @@ button {
 }
 
 .mainHeader {
-    grid-column: 2/5;
+    grid-column: 2/4;
     grid-row: 1;
     z-index: 2;
 
@@ -97,8 +97,13 @@ button {
 }
 
 .sampleMenu {
+    grid-row: 2/3;
+    grid-column: 3/4;
     align-self: center;
     justify-self: center;
+
+    width: 100%;
+    height: 100%;
 
     display: flex;
     flex-wrap: wrap;
@@ -144,6 +149,7 @@ button {
         justify-self: center;
 
         position: relative;
+
         &::after {
             content: "";
             display: block;
@@ -169,10 +175,10 @@ button {
 
 .keyboard {
     align-self: center;
-    display: block;
+    display: flex;
     height: 100%;
     width: 100%;
-    padding: 10px;
+    padding: 20px 50px 50px;
     svg {
         path {
             transition: all 0.3s;
@@ -187,10 +193,71 @@ button {
 }
 
 .backgroundImage {
-    width: 100%;
-    height: 100%;
-    right: 0;
-    top: 0;
-    position: absolute;
+    grid-row: 1/4;
+    grid-column: 4/5;
+    justify-self: right;
+    align-self: center;
+    width: 150%;
+    height: 150%;
+    // position: absolute;
     z-index: -1;
+
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &--Strings {
+        background-image: url("svg/violin.svg");
+    }
+    &--Piano {
+        background-image: url("svg/piano.svg");
+    }
+    &--Vocals {
+        background-image: url("svg/mic.svg");
+    }
+    &--Synth,
+    &--Pads {
+        background-image: url("svg/synth.svg");
+        background-position: top;
+        transform: translateX(21%);
+    }
+}
+
+.soundUploader {
+    grid-row: 1/3;
+    grid-column: 4;
+    align-self: center;
+    justify-self: center;
+}
+
+.fileInput {
+    position: relative;
+    &__input {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        font-size: inherit;
+        font-weight: inherit;
+        color: inherit;
+        img {
+            height: 100%;
+        }
+    }
 }

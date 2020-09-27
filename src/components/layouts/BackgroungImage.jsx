@@ -1,11 +1,22 @@
-import React, { Component } from 'react'
-import violin from '../../styles/svg/violin.svg'
+import React from 'react'
+import SounUploader from '../SoundUploader'
 
-export default class BackgroungImage extends Component {
-    render() {
+
+export default function BackgroungImage(props) {
+
+    if (props.instrument === 'Custom')
         return (
-            <img className="backgroundImage" src={violin} alt="violin" />
+
+            <SounUploader />
+
         )
-    }
+
+
+    return (
+        <div className={`backgroundImage backgroundImage--${props.instrument}`}></div>
+    )
+
+
 }
+
 

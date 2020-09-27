@@ -21,10 +21,10 @@ a {
   text-decoration: none;
   -webkit-filter: brightness(1);
           filter: brightness(1);
-  -webkit-transition: -webkit-filter .2s;
-  transition: -webkit-filter .2s;
-  transition: filter .2s;
-  transition: filter .2s, -webkit-filter .2s;
+  -webkit-transition: -webkit-filter 0.2s;
+  transition: -webkit-filter 0.2s;
+  transition: filter 0.2s;
+  transition: filter 0.2s, -webkit-filter 0.2s;
 }
 
 a:hover {
@@ -60,8 +60,8 @@ button:hover {
 
 .mainHeader {
   -ms-grid-column: 2;
-  -ms-grid-column-span: 3;
-  grid-column: 2/5;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
   -ms-grid-row: 1;
   grid-row: 1;
   z-index: 2;
@@ -118,9 +118,17 @@ button:hover {
 }
 
 .sampleMenu {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
   -ms-flex-item-align: center;
       align-self: center;
   justify-self: center;
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -213,12 +221,13 @@ button:hover {
 
 .keyboard {
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
       align-self: center;
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 100%;
   width: 100%;
-  padding: 10px;
+  padding: 20px 50px 50px;
   -ms-grid-column: 3;
   -ms-grid-column-span: 2;
   grid-column: 3/5;
@@ -239,11 +248,98 @@ button:hover {
 }
 
 .backgroundImage {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  grid-row: 1/4;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-column-align: right;
+      justify-self: right;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 150%;
+  height: 150%;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.backgroundImage--Strings {
+  background-image: url("svg/violin.svg");
+}
+
+.backgroundImage--Piano {
+  background-image: url("svg/piano.svg");
+}
+
+.backgroundImage--Vocals {
+  background-image: url("svg/mic.svg");
+}
+
+.backgroundImage--Synth, .backgroundImage--Pads {
+  background-image: url("svg/synth.svg");
+  background-position: top;
+  -webkit-transform: translateX(21%);
+          transform: translateX(21%);
+}
+
+.soundUploader {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1/3;
+  -ms-grid-column: 4;
+  grid-column: 4;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.fileInput {
+  position: relative;
+}
+
+.fileInput__input {
   width: 100%;
   height: 100%;
-  right: 0;
-  top: 0;
+  opacity: 0;
+  overflow: hidden;
   position: absolute;
-  z-index: -1;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.fileInput__input:hover {
+  cursor: pointer;
+}
+
+.fileInput__label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.fileInput__label img {
+  height: 100%;
 }
 /*# sourceMappingURL=index.css.map */
