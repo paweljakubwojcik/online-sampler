@@ -8,11 +8,19 @@ import BackgroundImage from './components/layouts/BackgroungImage'
 export default class App extends Component {
 
   state = {
-    instrument: 'Strings'
+    instrument: 'Piano'
+  }
+
+  componentDidMount() {
+    if (sessionStorage.getItem('instrument')) {
+      let instrument = sessionStorage.getItem('instrument')
+      this.setState({ instrument })
+    }
   }
 
   changeInstrument = (instrument) => {
     this.setState({ instrument })
+    sessionStorage.setItem('instrument', instrument)
   }
 
   render() {
