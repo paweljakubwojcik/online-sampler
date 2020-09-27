@@ -1,9 +1,21 @@
 import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+} from "react-router-dom";
+
+//components
 import Header from './components/layouts/Header'
 import SideBar from './components/layouts/SideBar'
 import SampleMenu from './components/SampleMenu'
 import Keyboard from './components/Keyboard'
 import BackgroundImage from './components/layouts/BackgroungImage'
+
+//pages
+import About from './components/pages/About'
+import Creators from './components/pages/Creators'
+import LearnMore from './components/pages/LearnMore'
+import Support from './components/pages/Support'
 
 export default class App extends Component {
 
@@ -26,11 +38,27 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <SideBar />
-        <SampleMenu changeInstrument={this.changeInstrument} instrument={this.state.instrument} />
-        <Keyboard />
-        <BackgroundImage instrument={this.state.instrument} />
+        <Router>
+          <Header />
+          <SideBar />
+          <Route exact path='/'>
+            <SampleMenu changeInstrument={this.changeInstrument} instrument={this.state.instrument} />
+            <Keyboard />
+            <BackgroundImage instrument={this.state.instrument} />
+          </Route>
+          <Route path='/about'>
+            <About></About>
+          </Route>
+          <Route path='/creators'>
+            <Creators></Creators>
+          </Route>
+          <Route path='/learn-more'>
+            <LearnMore />
+          </Route>
+          <Route path='/support'>
+            <Support />
+          </Route>
+        </Router>
       </div>
     );
   }

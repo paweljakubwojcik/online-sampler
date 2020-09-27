@@ -10,7 +10,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     background-color: #f6f6f6;
-    font-size: 16px;
+    font-size: 1vw;
 }
 
 code {
@@ -38,9 +38,9 @@ button {
 }
 
 .App {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow-x: hidden;
     display: grid;
     grid-template-columns: 1em 12.75em 3fr 3fr;
     grid-template-rows: 0.8fr 2fr 4fr 0.1fr;
@@ -52,6 +52,8 @@ button {
 }
 
 .mainHeader {
+    //position: fixed;
+
     grid-column: 2/4;
     grid-row: 1;
     z-index: 2;
@@ -86,11 +88,11 @@ button {
     background-color: #fff;
     .links {
         grid-column: 1;
-        grid-row: 3/4;
+        grid-row: 2/4;
 
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-evenly;
 
         margin: 10% 1vw;
     }
@@ -116,7 +118,7 @@ button {
         align-items: center;
 
         letter-spacing: 5.04px;
-        font-size: 1rem;
+        font-size: 1em;
 
         &::after {
             content: "";
@@ -176,9 +178,9 @@ button {
 .keyboard {
     align-self: center;
     display: flex;
-    height: 100%;
+    height: 90%;
     width: 100%;
-    padding: 20px 50px 50px;
+    padding: 20px px 40px;
     svg {
         path {
             transition: all 0.3s;
@@ -198,7 +200,7 @@ button {
     justify-self: right;
     align-self: center;
     width: 150%;
-    height: 150%;
+    height: 90%;
     // position: absolute;
     z-index: -1;
 
@@ -259,5 +261,23 @@ button {
         img {
             height: 100%;
         }
+    }
+}
+
+.page {
+    grid-row: 2/5;
+    grid-column: 3/5;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    h1 {
+        margin: 0;
+    }
+
+    .back {
+        margin: auto auto 5% 5%;
     }
 }
