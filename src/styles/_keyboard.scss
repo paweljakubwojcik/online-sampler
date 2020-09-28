@@ -16,9 +16,10 @@
     height: 100%;
     margin: 2px;
     transform-origin: top;
+    
     pointer-events: all;
-
-    transition: opacity 0.2s;
+    transform: perspective(1000px) rotateX(0deg);
+    transition: opacity 0.2s , transform .05s;
     &:hover {
         cursor: pointer;
         opacity: 0.8;

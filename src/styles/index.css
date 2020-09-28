@@ -291,8 +291,12 @@ button:hover {
   -webkit-transform-origin: top;
           transform-origin: top;
   pointer-events: all;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
+  -webkit-transform: perspective(1000px) rotateX(0deg);
+          transform: perspective(1000px) rotateX(0deg);
+  -webkit-transition: opacity 0.2s , -webkit-transform .05s;
+  transition: opacity 0.2s , -webkit-transform .05s;
+  transition: opacity 0.2s , transform .05s;
+  transition: opacity 0.2s , transform .05s , -webkit-transform .05s;
 }
 
 .key:hover {
