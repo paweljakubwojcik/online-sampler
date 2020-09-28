@@ -12,7 +12,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    background-color:#F8C878;
+    background-color: #f8c878;
     font-size: 16px;
 }
 
@@ -97,7 +97,7 @@ button {
         margin: 10% 1vw;
         a {
             display: inline-block;
-            padding:25px 0;
+            padding: 25px 0;
             position: relative;
             &::after {
                 content: "?";
@@ -106,14 +106,14 @@ button {
                 font-weight: bold;
                 font-size: 6em;
                 opacity: 0.3;
-                top: -.3em;
-                transition: transform .5s, opacity .4s;
-                opacity:0;
-                transform: rotateZ(45deg) translate(-150px,150px);
+                top: -0.3em;
+                transition: transform 0.5s, opacity 0.4s;
+                opacity: 0;
+                transform: rotateZ(45deg) translate(-150px, 150px);
             }
             &:hover::after {
-                opacity:.3;
-                transform: rotateZ(45deg) translate(0,0);
+                opacity: 0.3;
+                transform: rotateZ(45deg) translate(0, 0);
             }
         }
     }
@@ -203,24 +203,7 @@ button {
     }
 }
 
-.keyboard {
-    align-self: center;
-    display: flex;
-    height: 90%;
-    width: 100%;
-    padding: 20px px 40px;
-    svg {
-        path {
-            transition: all 0.3s;
-            &:hover {
-                cursor: pointer;
-                filter: invert(0.3);
-            }
-        }
-    }
-    grid-column: 3/5;
-    grid-row: 3/4;
-}
+@import "./keyboard";
 
 .backgroundImage {
     grid-row: 1/4;

@@ -1,0 +1,68 @@
+.keyboard {
+    align-self: center;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    height: 90%;
+    width: 100%;
+    padding: 20px 40px;
+    grid-column: 3/5;
+    grid-row: 3/4;
+}
+
+.key {
+    display: block;
+    border: 1px solid #000;
+    height: 100%;
+    margin: 2px;
+    transform-origin: top;
+    pointer-events: all;
+
+    transition: opacity 0.2s;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+
+    &--white {
+        flex:1;
+
+        background-color: #fff;
+       
+    }
+    &--black {
+        &:first-of-type {
+            margin-left: 25px;
+        }
+        &:last-of-type {
+            margin-right: 25px;
+        }
+        width: 50px;
+        background-color: #1b1b1b;
+    }
+
+    &--active{
+        transform: perspective(1000px) rotateX(-5deg);
+    }
+}
+.blackKeys {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: inherit;
+    padding-bottom: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 55%;
+    z-index: 2;
+    pointer-events: none;
+}
+#ghost11,
+#ghost12,
+#ghost21,
+#ghost22 {
+    opacity: 0;
+    pointer-events: none;
+    z-index:-1;
+}
