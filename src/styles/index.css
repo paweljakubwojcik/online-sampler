@@ -329,6 +329,12 @@ button:hover {
           transform: perspective(1000px) rotateX(-5deg);
 }
 
+.key--loading {
+  opacity: .5;
+  pointer-events: none;
+  cursor: default;
+}
+
 .blackKeys {
   display: -webkit-box;
   display: -ms-flexbox;
