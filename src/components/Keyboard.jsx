@@ -24,11 +24,11 @@ export default class Keyboard extends Component {
         return (
             <div className="keyboard" onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp}>
                 <div className="blackKeys">
-                    {this.blackNotes.map(note => <Key black={true} id={note + '1'} keyboardActive={this.state.active} />)}
-                    {this.blackNotes.map(note => <Key black={true} id={note + '2'} keyboardActive={this.state.active} />)}
+                    {this.blackNotes.map(note => <Key black={true} id={note + '1'} key={note + '1'} keyboardActive={this.state.active} />)}
+                    {this.blackNotes.map(note => <Key black={true} id={note + '2'} key={note + '2'} keyboardActive={this.state.active} />)}
                 </div>
-                {this.whiteNotes.map(note => <Key black={false} id={note + '1'} keyboardActive={this.state.active} />)}
-                {this.whiteNotes.map(note => <Key black={false} id={note + '2'} keyboardActive={this.state.active} />)}
+                {this.whiteNotes.map(note => <Key black={false} id={note + '1'} key={note + '1'} keyboardActive={this.state.active} />)}
+                {this.whiteNotes.map(note => <Key black={false} id={note + '2'} key={note + '2'} keyboardActive={this.state.active} />)}
                 <Key black={false} id={'C3'} />
             </div>
         )
