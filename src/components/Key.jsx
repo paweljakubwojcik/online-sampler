@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Howl } from 'howler';
-import soundSource from '../sounds/snare.mp3'
+import soundSource from '../sounds/sitarLike .mp3'
 
 export default class key extends Component {
 
@@ -8,7 +8,7 @@ export default class key extends Component {
 
     componentDidMount() {
 
-        this.setState({ triggerKey: this.props.note.triggerKey })
+        this.setState({ triggerKey: this.props.note.defaultTriggerKey })
 
         console.log('component did mount')
         this.sound = new Howl({
@@ -23,6 +23,17 @@ export default class key extends Component {
                 console.log(e)
             }
         });
+
+        document.body.addEventListener('keypress', (e) => {
+
+            if (this.state.triggerKey === e.key.toUpperCase() && !this.state.active)
+                this.play()
+        })
+        document.body.addEventListener('keyup', (e) => {
+
+            if (this.state.triggerKey === e.key.toUpperCase())
+                this.stop()
+        })
     }
 
 
