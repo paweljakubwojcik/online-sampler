@@ -26,8 +26,14 @@ export default class Mellotron extends Component {
             onload: () => {
                 console.log(`loaded ${instrument.src}`)
             },
+            onplay: (id) => {
+                this.howler.fade(0, 0.5, 200, id)
+            },
             onloaderror: (id, e) => {
                 console.log(e)
+            },
+            onplayerror: (id, e) => {
+                console.log(id, e)
             }
         })
     }

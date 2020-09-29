@@ -3,15 +3,16 @@ import React, { Component } from 'react'
 //import soundSource from '../sounds/PianoSample.mp3'
 
 export default class key extends Component {
+
+    id
+
     constructor(props) {
         super(props)
         this.rate = Math.pow(2, this.props.note.transpose / 12)
     }
-    id
+
 
     componentDidMount() {
-
-        console.log('component did mount')
 
         document.body.addEventListener('keypress', (e) => {
 
