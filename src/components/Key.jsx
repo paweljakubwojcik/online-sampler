@@ -1,83 +1,79 @@
 import React, { Component } from 'react'
-import { Howl } from 'howler';
-import soundSource from '../sounds/sitarLike .mp3'
+
+//import soundSource from '../sounds/PianoSample.mp3'
 
 export default class key extends Component {
-
-    sound
+    constructor(props) {
+        super(props)
+        this.rate = Math.pow(2, this.props.note.transpose / 12)
+    }
+    id
 
     componentDidMount() {
 
-        this.setState({ triggerKey: this.props.note.defaultTriggerKey })
-
         console.log('component did mount')
-        this.sound = new Howl({
-            src: [soundSource],
-            volume: 0.5,
-            rate: Math.pow(2, this.props.note.transpose / 12),
-            onload: () => {
-                console.log('loaded')
-                this.setState({ loaded: true })
-            },
-            onloaderror: (id, e) => {
-                console.log(e)
-            }
-        });
 
         document.body.addEventListener('keypress', (e) => {
 
-            if (this.state.triggerKey === e.key.toUpperCase() && !this.state.active)
-                this.play()
+            if (this.state.triggerKey === e.key.toUpperCase() && !this.state.keyPressed)
+                this.setState({ keyPressed: true })
         })
         document.body.addEventListener('keyup', (e) => {
 
-            if (this.state.triggerKey === e.key.toUpperCase())
-                this.stop()
+            if (this.state.triggerKey === e.key.toUpperCase() && this.state.keyPressed)
+                this.setState({ keyPressed: false })
         })
     }
 
-
-    play = () => {
-        this.setState({ active: true })
-        this.sound.play();
-        console.log('im playing')
-    }
-
-    stop = () => {
-        this.setState({ active: false })
-        this.sound.stop();
-        console.log('i stopped')
-    }
-
     state = {
-        loaded: false,
-        active: false,
-        triggerKey: ''
+        loaded: true,
+        clicked: false,
+        keyPressed: false,
+        triggerKey: this.props.note.defaultTriggerKey
     }
 
     onMouseDown = () => {
-        this.play()
+        this.setState({ clicked: true })
     }
 
     onMouseUp = () => {
-        if (this.state.active)
-            this.stop()
+        if (this.state.clicked)
+            this.setState({ clicked: false })
     }
 
     onMouseEnter = () => {
         if (this.props.keyboardActive)
-            this.play();
+            this.setState({ clicked: true })
+    }
+
+    onMouseOut = () => {
+        if (this.state.clicked)
+            this.setState({ clicked: false })
     }
 
 
     render() {
+        if (this.state.keyPressed || this.state.clicked) {
+
+            if (!this.props.howler.playing(this.id)) {
+                this.id = this.props.howler.play()
+                this.props.howler.rate(this.rate, this.id)
+                console.log(this.id)
+            }
+        }
+        else {
+            if (this.id) {
+                this.props.howler.stop(this.id)
+                console.log(`${this.props.note.name} is stopped!!`)
+            }
+        }
+
         return (
-            <React.Fragment>
-                <div id={this.props.note.name} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onMouseOut={this.onMouseUp} onMouseEnter={this.onMouseEnter}
-                    className={`key key--${this.props.note.black ? 'black' : 'white'} 
-                    ${this.state.active ? 'key--active' : ''}
+            <div id={this.props.note.name} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onMouseOut={this.onMouseOut} onMouseEnter={this.onMouseEnter}
+                className={`key key--${this.props.note.black ? 'black' : 'white'} 
+                    ${(this.state.keyPressed || this.state.clicked) ? 'key--active' : ''}
                     ${!this.state.loaded ? 'key--loading' : ''}`}></div>
-            </React.Fragment>
+
         )
     }
 }

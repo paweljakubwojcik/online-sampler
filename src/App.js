@@ -8,7 +8,7 @@ import {
 import Header from './components/layouts/Header'
 import SideBar from './components/layouts/SideBar'
 import SampleMenu from './components/SampleMenu'
-import Keyboard from './components/Keyboard'
+import Mellotron from './components/Mellotron'
 import BackgroundImage from './components/layouts/BackgroungImage'
 
 //pages
@@ -20,14 +20,7 @@ import Support from './components/pages/Support'
 export default class App extends Component {
 
   state = {
-    instrument: 'Piano'
-  }
-
-  componentDidMount() {
-    if (sessionStorage.getItem('instrument')) {
-      let instrument = sessionStorage.getItem('instrument')
-      this.setState({ instrument })
-    }
+    instrument: sessionStorage.getItem('instrument') || 'Piano'
   }
 
   changeInstrument = (instrument) => {
@@ -43,7 +36,7 @@ export default class App extends Component {
           <SideBar />
           <Route exact path='/'>
             <SampleMenu changeInstrument={this.changeInstrument} instrument={this.state.instrument} />
-            <Keyboard />
+            <Mellotron instrument={this.state.instrument} />
             <BackgroundImage instrument={this.state.instrument} />
           </Route>
           <Route path='/about'>
