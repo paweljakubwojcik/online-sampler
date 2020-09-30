@@ -42,6 +42,14 @@ export default class Mellotron extends Component {
             }]
     }
 
+    addCustomSound = (path) => {
+        let custom = this.state.sounds.find(sound => sound.name === 'Custom')
+        custom = { name: 'Custom', src: path }
+        this.setState(({ sounds }) => {
+            return { sounds: sounds.filter(sound => sound.name !== 'Custom').concat(custom) }
+        }, () => { console.log(this.state) })
+    }
+
 
     updateHowler = () => {
 
@@ -60,7 +68,7 @@ export default class Mellotron extends Component {
                 this.howler.fade(0, 0.5, 100, id)
             },
             onloaderror: (id, e) => {
-                console.log(e)
+                console.log(id, e)
             },
             onplayerror: (id, e) => {
                 console.log(id, e)
@@ -73,7 +81,7 @@ export default class Mellotron extends Component {
         return (
             <React.Fragment>
                 <Keyboard howler={this.howler} play={this.play} stop={this.stop} />
-                <BackgroundImage instrument={this.props.instrument} /></React.Fragment>
+                <BackgroundImage instrument={this.props.instrument} addCustomSound={this.addCustomSound} /></React.Fragment>
         )
     }
 }

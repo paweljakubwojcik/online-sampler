@@ -7,7 +7,7 @@ export default function BackgroungImage(props) {
     if (props.instrument === 'Custom')
         return (
 
-            <SounUploader />
+            <SounUploader addCustomSound={props.addCustomSound} />
 
         )
 
