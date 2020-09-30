@@ -9,7 +9,7 @@ import Header from './components/layouts/Header'
 import SideBar from './components/layouts/SideBar'
 import SampleMenu from './components/SampleMenu'
 import Mellotron from './components/Mellotron'
-import BackgroundImage from './components/layouts/BackgroungImage'
+
 
 //pages
 import About from './components/pages/About'
@@ -37,7 +37,6 @@ export default class App extends Component {
           <Route exact path='/'>
             <SampleMenu changeInstrument={this.changeInstrument} instrument={this.state.instrument} />
             <Mellotron instrument={this.state.instrument} />
-            <BackgroundImage instrument={this.state.instrument} />
           </Route>
           <Route path='/about'>
             <About></About>

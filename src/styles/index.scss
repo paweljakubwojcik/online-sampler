@@ -35,9 +35,12 @@ button {
     color: inherit;
     padding: 0;
     text-align: center;
+    background: transparent;
+    border: none;
     &:hover {
         cursor: pointer;
     }
+    
 }
 
 .App {
@@ -162,9 +165,6 @@ button {
         letter-spacing: 7.56px;
         font-weight: 100;
         font-size: 1.5em;
-
-        background: transparent;
-        border: none;
 
         margin: 10%;
         padding: 5px 0;

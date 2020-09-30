@@ -3,33 +3,36 @@
     position: relative;
     display: flex;
     justify-content: space-evenly;
-    height: 90%;
+    align-self: stretch;
     width: 100%;
-    padding: 20px 40px;
+    padding: 40px 40px;
     grid-column: 3/5;
     grid-row: 3/4;
 }
 
 .key {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
     border: 1px solid #000;
     height: 100%;
-    margin: 2px;
+    margin: 1px;
+    padding-bottom: 10px;
     transform-origin: top;
-    
+
     pointer-events: all;
     transform: perspective(1000px) rotateX(0deg);
-    transition: opacity 0.2s , transform .05s;
+    transition: opacity 0.2s, transform 0.05s;
     &:hover {
         cursor: pointer;
         opacity: 0.8;
     }
 
     &--white {
-        flex:1;
-
+        flex: 1;
         background-color: #fff;
-       
+        color: #1b1b1b;
     }
     &--black {
         &:first-of-type {
@@ -40,17 +43,24 @@
         }
         width: 50px;
         background-color: #1b1b1b;
+        color: #fff;
     }
 
-    &--active{
+    &--active {
         transform: perspective(1000px) rotateX(-5deg);
     }
 
-    &--loading{
-        opacity:.5;
+    &--loading {
+        opacity: 0.5;
         pointer-events: none;
         cursor: default;
     }
+    &--editable {
+        opacity: 0.7;
+    }
+}
+.trigger {
+    opacity: 0.5;
 }
 .blackKeys {
     display: flex;
@@ -71,5 +81,18 @@
 #ghost22 {
     opacity: 0;
     pointer-events: none;
-    z-index:-1;
+    z-index: -1;
+}
+
+.editMap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #1b1b1b26;
+    &:hover {
+        opacity: 1;
+    }
+    &--active{
+        
+    }
 }

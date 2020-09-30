@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Keyboard from './Keyboard'
+import BackgroundImage from './layouts/BackgroungImage'
 
 import { Howl } from 'howler';
 
@@ -42,13 +43,6 @@ export default class Mellotron extends Component {
     }
 
 
-    play = () => {
-
-    }
-    stop = () => {
-
-    }
-
     updateHowler = () => {
 
         let instrument = this.state.sounds.find(instrument => instrument.name === this.props.instrument)
@@ -63,7 +57,7 @@ export default class Mellotron extends Component {
                 console.log(`loaded ${instrument.src}`)
             },
             onplay: (id) => {
-                this.howler.fade(0, 0.5, 200, id)
+                this.howler.fade(0, 0.5, 100, id)
             },
             onloaderror: (id, e) => {
                 console.log(e)
@@ -77,7 +71,9 @@ export default class Mellotron extends Component {
     render() {
         this.updateHowler()
         return (
-            <Keyboard howler={this.howler} play={this.play} stop={this.stop} />
+            <React.Fragment>
+                <Keyboard howler={this.howler} play={this.play} stop={this.stop} />
+                <BackgroundImage instrument={this.props.instrument} /></React.Fragment>
         )
     }
 }

@@ -37,6 +37,8 @@ button {
   color: inherit;
   padding: 0;
   text-align: center;
+  background: transparent;
+  border: none;
 }
 
 button:hover {
@@ -210,8 +212,6 @@ button:hover {
   letter-spacing: 7.56px;
   font-weight: 100;
   font-size: 1.5em;
-  background: transparent;
-  border: none;
   margin: 10%;
   padding: 5px 0;
   -ms-flex-item-align: center;
@@ -272,9 +272,10 @@ button:hover {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  height: 90%;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
   width: 100%;
-  padding: 20px 40px;
+  padding: 40px 40px;
   -ms-grid-column: 3;
   -ms-grid-column-span: 2;
   grid-column: 3/5;
@@ -284,19 +285,32 @@ button:hover {
 }
 
 .key {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 1px solid #000;
   height: 100%;
-  margin: 2px;
+  margin: 1px;
+  padding-bottom: 10px;
   -webkit-transform-origin: top;
           transform-origin: top;
   pointer-events: all;
   -webkit-transform: perspective(1000px) rotateX(0deg);
           transform: perspective(1000px) rotateX(0deg);
-  -webkit-transition: opacity 0.2s , -webkit-transform .05s;
-  transition: opacity 0.2s , -webkit-transform .05s;
-  transition: opacity 0.2s , transform .05s;
-  transition: opacity 0.2s , transform .05s , -webkit-transform .05s;
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.05s;
+  transition: opacity 0.2s, -webkit-transform 0.05s;
+  transition: opacity 0.2s, transform 0.05s;
+  transition: opacity 0.2s, transform 0.05s, -webkit-transform 0.05s;
 }
 
 .key:hover {
@@ -309,11 +323,13 @@ button:hover {
       -ms-flex: 1;
           flex: 1;
   background-color: #fff;
+  color: #1b1b1b;
 }
 
 .key--black {
   width: 50px;
   background-color: #1b1b1b;
+  color: #fff;
 }
 
 .key--black:first-of-type {
@@ -330,9 +346,17 @@ button:hover {
 }
 
 .key--loading {
-  opacity: .5;
+  opacity: 0.5;
   pointer-events: none;
   cursor: default;
+}
+
+.key--editable {
+  opacity: 0.7;
+}
+
+.trigger {
+  opacity: 0.5;
 }
 
 .blackKeys {
@@ -360,6 +384,17 @@ button:hover {
   opacity: 0;
   pointer-events: none;
   z-index: -1;
+}
+
+.editMap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #1b1b1b26;
+}
+
+.editMap:hover {
+  opacity: 1;
 }
 
 .backgroundImage {

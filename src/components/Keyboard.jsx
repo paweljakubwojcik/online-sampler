@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Key from './Key'
+import EditMapButton from './editMapButton'
 
 
 
@@ -12,35 +13,35 @@ export default class Keyboard extends Component {
         super(props)
 
         let notes = [
-            { name: 'C1', defaultTriggerKey: 'Q' },
-            { name: 'Db1', defaultTriggerKey: '2' },
-            { name: 'D1', defaultTriggerKey: 'W' },
-            { name: 'Eb1', defaultTriggerKey: '3' },
-            { name: 'E1', defaultTriggerKey: 'E' },
+            { name: 'C1', defaultTriggerKeys: ['Q'] },
+            { name: 'Db1', defaultTriggerKeys: ['2'] },
+            { name: 'D1', defaultTriggerKeys: ['W'] },
+            { name: 'Eb1', defaultTriggerKeys: ['3'] },
+            { name: 'E1', defaultTriggerKeys: ['E'] },
             { name: 'ghost11' },
-            { name: 'F1', defaultTriggerKey: 'R' },
-            { name: 'Gb1', defaultTriggerKey: '5' },
-            { name: 'G1', defaultTriggerKey: 'T' },
-            { name: 'Ab1', defaultTriggerKey: '6' },
-            { name: 'A1', defaultTriggerKey: 'Y' },
-            { name: 'Bb1', defaultTriggerKey: '7' },
-            { name: 'B1', defaultTriggerKey: 'U' },
+            { name: 'F1', defaultTriggerKeys: ['R'] },
+            { name: 'Gb1', defaultTriggerKeys: ['5'] },
+            { name: 'G1', defaultTriggerKeys: ['T'] },
+            { name: 'Ab1', defaultTriggerKeys: ['6'] },
+            { name: 'A1', defaultTriggerKeys: ['Y'] },
+            { name: 'Bb1', defaultTriggerKeys: ['7'] },
+            { name: 'B1', defaultTriggerKeys: ['U', 'Z'] },
             { name: 'ghost12' },
-            { name: 'C2', defaultTriggerKey: 'X' },
-            { name: 'Db2', defaultTriggerKey: 'D' },
-            { name: 'D2', defaultTriggerKey: 'C' },
-            { name: 'Eb2', defaultTriggerKey: 'F' },
-            { name: 'E2', defaultTriggerKey: 'V' },
+            { name: 'C2', defaultTriggerKeys: ['X'] },
+            { name: 'Db2', defaultTriggerKeys: ['D'] },
+            { name: 'D2', defaultTriggerKeys: ['C'] },
+            { name: 'Eb2', defaultTriggerKeys: ['F'] },
+            { name: 'E2', defaultTriggerKeys: ['V', 'X'] },
             { name: 'ghost21' },
-            { name: 'F2', defaultTriggerKey: 'B' },
-            { name: 'Gb2', defaultTriggerKey: 'H' },
-            { name: 'G2', defaultTriggerKey: 'N' },
-            { name: 'Ab2', defaultTriggerKey: 'J' },
-            { name: 'A2', defaultTriggerKey: 'M' },
-            { name: 'Bb2', defaultTriggerKey: 'K' },
-            { name: 'B2', defaultTriggerKey: ',' },
+            { name: 'F2', defaultTriggerKeys: ['B'] },
+            { name: 'Gb2', defaultTriggerKeys: ['H'] },
+            { name: 'G2', defaultTriggerKeys: ['N'] },
+            { name: 'Ab2', defaultTriggerKeys: ['J'] },
+            { name: 'A2', defaultTriggerKeys: ['M'] },
+            { name: 'Bb2', defaultTriggerKeys: ['K'] },
+            { name: 'B2', defaultTriggerKeys: [','] },
             { name: 'ghost22' },
-            { name: 'C3', defaultTriggerKey: '.' }
+            { name: 'C3', defaultTriggerKeys: ['.'] }
         ]
 
 
@@ -51,9 +52,9 @@ export default class Keyboard extends Component {
                 this.blackNotes.push({ name: note.name, black: true })
             } else {
                 if (note.name.length === 2)
-                    this.whiteNotes.push({ name: note.name, defaultTriggerKey: note.defaultTriggerKey, black: false, transpose: i })
+                    this.whiteNotes.push({ name: note.name, defaultTriggerKeys: note.defaultTriggerKeys, black: false, transpose: i })
                 if (note.name.length === 3)
-                    this.blackNotes.push({ name: note.name, defaultTriggerKey: note.defaultTriggerKey, black: true, transpose: i })
+                    this.blackNotes.push({ name: note.name, defaultTriggerKeys: note.defaultTriggerKeys, black: true, transpose: i })
                 i++;
             }
 
@@ -63,20 +64,31 @@ export default class Keyboard extends Component {
     }
 
     state = {
-        active: false
+        active: false,
+        editMode: false
     }
 
     onMouseDown = () => {
-        this.setState({ active: true })
+        if (!this.state.editMode)
+            this.setState({ active: true })
     }
 
     onMouseUp = () => {
-        this.setState({ active: false })
+        if (!this.state.editMode)
+            this.setState({ active: false })
     }
 
     onMouseLeave = () => {
-        if (this.state.active)
-            this.setState({ active: false })
+        if (!this.state.editMode)
+            if (this.state.active)
+                this.setState({ active: false })
+    }
+
+    toggleEditMode = () => {
+        this.setState(({ editMode }) => {
+            return { editMode: !editMode }
+        })
+
     }
 
 
@@ -84,12 +96,17 @@ export default class Keyboard extends Component {
         console.log('rendered')
         //context provider ogarnąć!!
         return (
-            <div className="keyboard" onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onMouseLeave={this.onMouseLeave}>
-                <div className="blackKeys">
-                    {this.blackNotes.map(note => <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} />)}
+            <React.Fragment>
+
+                <div className="keyboard" onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onMouseLeave={this.onMouseLeave}>
+                    <div className="blackKeys">
+                        {this.blackNotes.map(note => <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} />)}
+                    </div>
+                    {this.whiteNotes.map(note => <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} />)}
+                    <EditMapButton toggleEditMode={this.toggleEditMode} />
                 </div>
-                {this.whiteNotes.map(note => <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} />)}
-            </div>
+
+            </React.Fragment>
         )
     }
 }
