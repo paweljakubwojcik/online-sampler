@@ -2,21 +2,57 @@ import React, { Component } from 'react'
 
 import Keyboard from './Keyboard'
 
-import { soundList } from '../sounds/soundList'
 import { Howl } from 'howler';
+
+//sounds
+import PianoSample from '../sounds/PianoSample.mp3'
+import StringsSample from '../sounds/StringsSample.mp3'
+import VocalSample from '../sounds/VocalSample.mp3'
+import SynthSample from '../sounds/SynthSample.mp3'
+import PadsSample from '../sounds/PadsSample.mp3'
 
 export default class Mellotron extends Component {
 
-    constructor(props) {
-        super(props)
+    state = {
+        sounds: [
+            {
+                name: 'Piano',
+                src: PianoSample
+            },
+            {
+                name: 'Strings',
+                src: StringsSample
+            },
+            {
+                name: 'Vocals',
+                src: VocalSample
+            },
+            {
+                name: 'Synth',
+                src: SynthSample
+            },
+            {
+                name: 'Pads',
+                src: PadsSample
+            },
+            {
+                name: 'Custom',
+                src: PadsSample //to be changed
+            }]
     }
 
-    howler
+
+    play = () => {
+
+    }
+    stop = () => {
+
+    }
+
     updateHowler = () => {
 
-        let instrument = soundList.find(instrument => instrument.name === this.props.instrument)
+        let instrument = this.state.sounds.find(instrument => instrument.name === this.props.instrument)
         let src = instrument.src
-
 
         if (this.howler)
             this.howler.unload()
@@ -39,10 +75,9 @@ export default class Mellotron extends Component {
     }
 
     render() {
-        console.log('rendered melloron')
         this.updateHowler()
         return (
-            <Keyboard howler={this.howler} />
+            <Keyboard howler={this.howler} play={this.play} stop={this.stop} />
         )
     }
 }

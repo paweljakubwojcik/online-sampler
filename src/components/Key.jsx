@@ -8,7 +8,18 @@ export default class key extends Component {
 
     constructor(props) {
         super(props)
-        this.rate = Math.pow(2, this.props.note.transpose / 12)
+
+        let { name, defaultTriggerKey, black, transpose } = this.props.note
+
+        this.rate = Math.pow(2, transpose / 12)
+        this.state = {
+            loaded: true,
+            clicked: false,
+            keyPressed: false,
+            triggerKey: defaultTriggerKey
+        }
+        this.black = black
+        this.name = name
     }
 
 
@@ -24,13 +35,6 @@ export default class key extends Component {
             if (this.state.triggerKey === e.key.toUpperCase() && this.state.keyPressed)
                 this.setState({ keyPressed: false })
         })
-    }
-
-    state = {
-        loaded: true,
-        clicked: false,
-        keyPressed: false,
-        triggerKey: this.props.note.defaultTriggerKey
     }
 
     onMouseDown = () => {
@@ -54,24 +58,28 @@ export default class key extends Component {
 
 
     render() {
-        if (this.state.keyPressed || this.state.clicked) {
 
-            if (!this.props.howler.playing(this.id)) {
-                this.id = this.props.howler.play()
-                this.props.howler.rate(this.rate, this.id)
+        let { howler } = this.props
+
+        if (this.state.keyPressed || this.state.clicked) {
+            console.log(`${this.name}`, !howler.playing(this.id))
+            if (!howler.playing(this.id)) {
+                this.id = howler.play()
+                howler.rate(this.rate, this.id)
                 console.log(this.id)
+                console.log(`${this.name} is playing!!`)
             }
         }
         else {
-            if (this.id) {
-                this.props.howler.stop(this.id)
-                console.log(`${this.props.note.name} is stopped!!`)
+            if (howler.playing(this.id) && this.id) {
+                howler.stop(this.id)
+                console.log(`${this.name} has stopped!!`)
             }
         }
 
         return (
-            <div id={this.props.note.name} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onMouseOut={this.onMouseOut} onMouseEnter={this.onMouseEnter}
-                className={`key key--${this.props.note.black ? 'black' : 'white'} 
+            <div id={this.name} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onMouseOut={this.onMouseOut} onMouseEnter={this.onMouseEnter}
+                className={`key key--${this.black ? 'black' : 'white'} 
                     ${(this.state.keyPressed || this.state.clicked) ? 'key--active' : ''}
                     ${!this.state.loaded ? 'key--loading' : ''}`}></div>
 
