@@ -241,29 +241,41 @@ button {
 @import "./soundUploader";
 @import "./pages";
 
-@media screen and (max-width: 800px) and (orientation: portrait) {
+@media (orientation: portrait) {
     html {
         transform: rotate(90deg);
         overflow-x: hidden;
         position: relative;
     }
-
     .App {
         max-width: 100vh;
         height: 100vw;
     }
-
     body {
-        font-size: 12px;
         width: 100vh;
         height: 100vw;
     }
 }
 
-@media (max-width: 400px){
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 12px;
+    }
+}
+@media screen and (max-height: 800px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
     body {
         font-size: 8px;
-        width: 100vh;
-        height: 100vw;
+    }
+}
+
+@media (max-height: 400px) {
+    body {
+        font-size: 8px;
     }
 }

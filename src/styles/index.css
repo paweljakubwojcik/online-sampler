@@ -294,7 +294,7 @@ button:hover {
           flex-direction: column;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -562,7 +562,7 @@ button:hover {
           transform: rotateZ(45deg) translate(-50%, 50%);
 }
 
-@media screen and (max-width: 800px) and (orientation: portrait) {
+@media (orientation: portrait) {
   html {
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
@@ -574,17 +574,32 @@ button:hover {
     height: 100vw;
   }
   body {
-    font-size: 12px;
     width: 100vh;
     height: 100vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  body {
+    font-size: 12px;
   }
 }
 
 @media (max-width: 400px) {
   body {
     font-size: 8px;
-    width: 100vh;
-    height: 100vw;
+  }
+}
+
+@media (max-height: 400px) {
+  body {
+    font-size: 8px;
   }
 }
 /*# sourceMappingURL=index.css.map */

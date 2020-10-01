@@ -106,7 +106,13 @@ export default class key extends Component {
         }
 
         return (
-            <div id={this.name} onClick={this.onClick} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onMouseOut={this.onMouseOut} onMouseEnter={this.onMouseEnter}
+            <div id={this.name} onClick={this.onClick}
+                onMouseDown={this.onMouseDown}
+                onMouseUp={this.onMouseUp}
+                onMouseOut={this.onMouseOut}
+                onMouseEnter={this.onMouseEnter}
+                onTouchStart={this.onMouseDown}
+                onTouchEnd={this.onMouseUp}
                 className={`key key--${this.black ? 'black' : 'white'} 
                     ${(this.state.keyPressed || this.state.clicked) ? 'key--active' : ''}
                     ${(this.state.edit && this.props.editMode) ? 'key--editable' : ''}`}>

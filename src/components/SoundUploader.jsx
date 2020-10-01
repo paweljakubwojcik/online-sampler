@@ -5,7 +5,7 @@ export default class soundUploader extends Component {
 
     constructor(props) {
         super(props)
-        if (sessionStorage.getItem('uploadedSound') !== null)
+
             this.state = {
                 sound: sessionStorage.getItem('uploadedSound')
             }
@@ -29,18 +29,17 @@ export default class soundUploader extends Component {
     }
 
     componentWillUnmount() {
-        if (sessionStorage.getItem('uploadedSound'))
             sessionStorage.setItem('uploadedSound', this.state.sound)
     }
 
     render() {
         return (
             <form className="soundUploader fileInput" onSubmit={this.onSubmit}>
-                <input type="file" className="fileInput__input" name="fileInput" id="fileInput" accept='.mp3,.wave' onChange={this.onLoaded.bind(this)} />
+                <input type="file" className="fileInput__input" name="fileInput" id="fileInput" accept='audio/*' onChange={this.onLoaded.bind(this)} />
                 <label className="fileInput__label" htmlFor="fileInput">
                     <img src={soundWave} alt="soundWave" />
 
-                    <p> {this.state ? this.state.sound : "Drop mp3 file here to make a custom sample!"}</p>
+                    <p> {this.state.sound ? this.state.sound : "Drop mp3 file here to make a custom sample!"}</p>
 
                 </label>
 
