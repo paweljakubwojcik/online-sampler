@@ -67,6 +67,10 @@ button:hover {
   -ms-grid-row: 1;
   grid-row: 1;
   z-index: 2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2vh;
+  left: 0;
   margin: 2vh 0;
 }
 
@@ -95,6 +99,10 @@ button:hover {
   display: grid;
   -ms-grid-rows: inherit;
       grid-template-rows: inherit;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: white;
@@ -305,6 +313,8 @@ button:hover {
   padding-bottom: 10px;
   -webkit-transform-origin: top;
           transform-origin: top;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.136);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.136);
   pointer-events: all;
   -webkit-transform: perspective(1000px) rotateX(0deg);
           transform: perspective(1000px) rotateX(0deg);
@@ -329,17 +339,17 @@ button:hover {
 }
 
 .key--black {
-  width: 50px;
+  width: 4%;
   background-color: #1b1b1b;
   color: #fff;
 }
 
 .key--black:first-of-type {
-  margin-left: 25px;
+  margin-left: 2%;
 }
 
 .key--black:last-of-type {
-  margin-right: 25px;
+  margin-right: 2%;
 }
 
 .key--active {
@@ -398,7 +408,7 @@ button:hover {
           flex-direction: row-reverse;
   max-height: 40%;
   width: 100%;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .trigger p {
@@ -574,6 +584,7 @@ button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 1000px;
 }
 
 .page h1 {
@@ -626,13 +637,19 @@ button:hover {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 3000px) {
   body {
-    font-size: 12px;
+    font-size: 32px;
   }
 }
 
-@media screen and (max-height: 600px) and (orientation: landscape) {
+@media screen and (min-width: 2000px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 800px), (max-height: 600px) {
   body {
     font-size: 12px;
   }
