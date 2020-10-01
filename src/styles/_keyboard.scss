@@ -74,6 +74,22 @@
 .trigger {
     opacity: 0;
     user-select: none;
+    pointer-events: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+    max-height: 40%;
+    width: 100%;
+
+    font-size: .8em;
+    p {
+        padding: 0;
+        margin: 0 2%;
+    }
 }
 .blackKeys {
     display: flex;

@@ -125,9 +125,8 @@ export default class key extends Component {
                     ${(this.props.editMode) ? 'key--editable' : ''}
                     ${(this.state.edit && this.props.editMode) ? 'key--edit' : ''}`}>
 
-                {
-                    this.state.triggerKey.map((key) =>
-                        <div key={key} className="trigger">{key}</div>)}
+                <div className="trigger">{
+                    this.state.triggerKey.map((key) => <p>{key}</p>)}</div>
             </div>
 
         )
