@@ -579,25 +579,13 @@ button:hover {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px), (max-height: 800px) {
   body {
     font-size: 12px;
   }
 }
 
-@media screen and (max-height: 800px) {
-  body {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 400px) {
-  body {
-    font-size: 8px;
-  }
-}
-
-@media (max-height: 400px) {
+@media (max-width: 400px), (max-height: 400px) {
   body {
     font-size: 8px;
   }
