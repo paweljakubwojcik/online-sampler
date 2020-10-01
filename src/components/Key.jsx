@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 
 export default class key extends Component {
 
-    id
+    id //id of played sound
 
     constructor(props) {
         super(props)
@@ -26,18 +26,19 @@ export default class key extends Component {
 
     componentDidMount() {
 
+        //events onkey press
         document.body.addEventListener('keypress', (e) => {
             let key = e.key.toUpperCase()
             if (this.props.editMode) {
                 if (this.state.edit) {
+                    let triggerKey;
                     if (!this.state.triggerKey.includes(key)) {
-                        let triggerKey = this.state.triggerKey.concat(key)
-                        this.setState({ triggerKey })
+                        triggerKey = this.state.triggerKey.concat(key)
                     }
                     else {
-                        let triggerKey = this.state.triggerKey.filter(element => element !== key)
-                        this.setState({ triggerKey })
+                        triggerKey = this.state.triggerKey.filter(element => element !== key)
                     }
+                    this.setState({ triggerKey, edit: false })
                 }
             }
             else {
@@ -48,22 +49,32 @@ export default class key extends Component {
         document.body.addEventListener('keyup', (e) => {
             let key = e.key.toUpperCase()
             if (this.props.editMode) {
-
             } else
                 if (this.state.activeKey === key && this.state.keyPressed)
                     this.setState({ keyPressed: false, activeKey: false })
         })
+
+        document.body.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('key') && !e.target.classList.contains('keyboard'))
+                this.setState({ edit: false })
+        })
     }
 
-    onMouseDown = () => {
-        if (!this.props.editMode)
-            this.setState({ clicked: true })
+    onMouseDown = (e) => {
+        if (e.ctrlKey) {
+            this.setState(({ edit }) => { return { edit: !edit } })
+            this.props.toggleEditMode(true)
+        }
+        else
+            if (this.props.editMode)
+                this.setState(({ edit }) => { return { edit: !edit } })
+            else
+                this.setState({ clicked: true })
     }
 
     onMouseUp = () => {
-        if (!this.props.editMode)
-            if (this.state.clicked)
-                this.setState({ clicked: false })
+        if (this.state.clicked)
+            this.setState({ clicked: false })
     }
 
     onMouseEnter = () => {
@@ -76,21 +87,17 @@ export default class key extends Component {
             this.setState({ clicked: false })
     }
 
-    onClick = () => {
-        if (this.props.editMode)
-            this.setState((state) => { return { edit: !state.edit } })
-    }
-
 
     render() {
 
+        //playing or stoping sounds
         let { howler } = this.props
 
         if (this.state.keyPressed || this.state.clicked) {
             if (!howler.playing(this.id) || !this.id) {
                 this.id = howler.play()
                 howler.rate(this.rate, this.id)
-                console.log(this.id)
+
                 console.log(`${this.name} is playing!!`)
             }
         }
@@ -115,11 +122,12 @@ export default class key extends Component {
                 onTouchEnd={this.onMouseUp}
                 className={`key key--${this.black ? 'black' : 'white'} 
                     ${(this.state.keyPressed || this.state.clicked) ? 'key--active' : ''}
-                    ${(this.state.edit && this.props.editMode) ? 'key--editable' : ''}`}>
+                    ${(this.props.editMode) ? 'key--editable' : ''}
+                    ${(this.state.edit && this.props.editMode) ? 'key--edit' : ''}`}>
 
-                {this.props.editMode ?
+                {
                     this.state.triggerKey.map((key) =>
-                        <div key={key} className="trigger">{key}</div>) : ''}
+                        <div key={key} className="trigger">{key}</div>)}
             </div>
 
         )

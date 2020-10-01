@@ -48,7 +48,7 @@ button {
     overflow-x: hidden;
     display: grid;
     grid-template-columns: 1em 12.5em 3fr 3fr;
-    grid-template-rows: 0.8fr 2fr 4fr 0.1fr;
+    grid-template-rows: 0.8fr 2fr 4fr 0.4fr;
 
     font-family: "Nirmala UI";
     color: $primaryFontColor;
@@ -257,7 +257,13 @@ button {
     }
 }
 
-@media screen and (max-width: 800px), (max-height: 800px) {
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
     body {
         font-size: 12px;
     }

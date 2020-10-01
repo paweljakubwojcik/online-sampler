@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Key from './Key'
-import EditMapButton from './editMapButton'
 
 
 
@@ -60,12 +59,18 @@ export default class Keyboard extends Component {
 
         });
 
-        console.log('constructed!!')
     }
 
     state = {
         active: false,
         editMode: false
+    }
+
+    componentDidMount() {
+        document.body.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('key') && !e.target.classList.contains('keyboard'))
+                this.toggleEditMode(false)
+        })
     }
 
     onMouseDown = () => {
@@ -74,20 +79,16 @@ export default class Keyboard extends Component {
     }
 
     onMouseUp = () => {
-        if (!this.state.editMode)
-            this.setState({ active: false })
+        this.setState({ active: false })
     }
 
     onMouseLeave = () => {
-        if (!this.state.editMode)
-            if (this.state.active)
-                this.setState({ active: false })
+        if (this.state.active)
+            this.setState({ active: false })
     }
 
-    toggleEditMode = () => {
-        this.setState(({ editMode }) => {
-            return { editMode: !editMode }
-        })
+    toggleEditMode = (bool) => {
+        this.setState({ editMode: bool, active: false })
 
     }
 
@@ -98,12 +99,18 @@ export default class Keyboard extends Component {
         return (
             <React.Fragment>
 
-                <div className="keyboard" onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onMouseLeave={this.onMouseLeave}>
+                <div className="keyboard"
+                    onMouseDown={this.onMouseDown}
+                    onMouseUp={this.onMouseUp}
+                    onMouseLeave={this.onMouseLeave}
+                    onTouchStart={this.onMouseDown}
+                    onTouchEnd={this.onMouseUp}>
                     <div className="blackKeys">
-                        {this.blackNotes.map(note => <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} />)}
+                        {this.blackNotes.map(note =>
+                            <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} toggleEditMode={this.toggleEditMode} />)}
                     </div>
-                    {this.whiteNotes.map(note => <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} />)}
-                    <EditMapButton toggleEditMode={this.toggleEditMode} />
+                    {this.whiteNotes.map(note =>
+                        <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} toggleEditMode={this.toggleEditMode} />)}
                 </div>
 
             </React.Fragment>
