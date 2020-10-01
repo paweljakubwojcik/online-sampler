@@ -275,7 +275,7 @@ button:hover {
   -ms-flex-item-align: stretch;
       align-self: stretch;
   width: 100%;
-  padding: 40px 40px;
+  padding: 3% 3%;
   -ms-grid-column: 3;
   -ms-grid-column-span: 2;
   grid-column: 3/5;
@@ -560,5 +560,31 @@ button:hover {
 .page .back:hover::before {
   -webkit-transform: rotateZ(45deg) translate(-50%, 50%);
           transform: rotateZ(45deg) translate(-50%, 50%);
+}
+
+@media screen and (max-width: 800px) and (orientation: portrait) {
+  html {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    overflow-x: hidden;
+    position: relative;
+  }
+  .App {
+    max-width: 100vh;
+    height: 100vw;
+  }
+  body {
+    font-size: 12px;
+    width: 100vh;
+    height: 100vw;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    font-size: 8px;
+    width: 100vh;
+    height: 100vw;
+  }
 }
 /*# sourceMappingURL=index.css.map */

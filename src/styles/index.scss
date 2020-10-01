@@ -40,7 +40,6 @@ button {
     &:hover {
         cursor: pointer;
     }
-    
 }
 
 .App {
@@ -241,3 +240,30 @@ button {
 
 @import "./soundUploader";
 @import "./pages";
+
+@media screen and (max-width: 800px) and (orientation: portrait) {
+    html {
+        transform: rotate(90deg);
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .App {
+        max-width: 100vh;
+        height: 100vw;
+    }
+
+    body {
+        font-size: 12px;
+        width: 100vh;
+        height: 100vw;
+    }
+}
+
+@media (max-width: 400px){
+    body {
+        font-size: 8px;
+        width: 100vh;
+        height: 100vw;
+    }
+}

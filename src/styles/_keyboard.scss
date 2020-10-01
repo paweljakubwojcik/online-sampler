@@ -5,7 +5,7 @@
     justify-content: space-evenly;
     align-self: stretch;
     width: 100%;
-    padding: 40px 40px;
+    padding: 3% 3%;
     grid-column: 3/5;
     grid-row: 3/4;
 }
@@ -92,7 +92,6 @@
     &:hover {
         opacity: 1;
     }
-    &--active{
-        
+    &--active {
     }
 }
