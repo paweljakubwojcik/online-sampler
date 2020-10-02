@@ -87,11 +87,10 @@ export default class key extends Component {
             this.setState({ clicked: false })
     }
 
-
-    render() {
-
+    componentDidUpdate() {
         //playing or stoping sounds
-        let { howler } = this.props
+        let { howler } = this.props.howler
+
 
         if (this.state.keyPressed || this.state.clicked) {
             if (!howler.playing(this.id) || !this.id) {
@@ -111,7 +110,9 @@ export default class key extends Component {
                 console.log(`${this.name} has stopped!!`)
             }
         }
+    }
 
+    render() {
         return (
             <div id={this.name} onClick={this.onClick}
                 onMouseDown={this.onMouseDown}

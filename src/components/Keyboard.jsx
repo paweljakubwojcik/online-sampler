@@ -97,23 +97,22 @@ export default class Keyboard extends Component {
         console.log('rendered')
         //context provider ogarnąć!!
         return (
-            <React.Fragment>
 
-                <div className="keyboard"
-                    onMouseDown={this.onMouseDown}
-                    onMouseUp={this.onMouseUp}
-                    onMouseLeave={this.onMouseLeave}
-                    onTouchStart={this.onMouseDown}
-                    onTouchEnd={this.onMouseUp}>
-                    <div className="blackKeys">
-                        {this.blackNotes.map(note =>
-                            <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} toggleEditMode={this.toggleEditMode} />)}
-                    </div>
-                    {this.whiteNotes.map(note =>
+            <div className="keyboard"
+                onMouseDown={this.onMouseDown}
+                onMouseUp={this.onMouseUp}
+                onMouseLeave={this.onMouseLeave}
+                onTouchStart={this.onMouseDown}
+                onTouchEnd={this.onMouseUp}>
+
+                <div className="blackKeys">
+                    {this.blackNotes.map(note =>
                         <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} toggleEditMode={this.toggleEditMode} />)}
                 </div>
+                {this.whiteNotes.map(note =>
+                    <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} toggleEditMode={this.toggleEditMode} />)}
+            </div>
 
-            </React.Fragment>
         )
     }
 }
