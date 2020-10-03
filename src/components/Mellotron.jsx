@@ -94,7 +94,6 @@ export default class Mellotron extends Component {
         const instrument = { name: 'Custom', src: path }
         this.setState({ instrument }, () => {
             this.HOWLER.update(this.state.instrument.src)
-            this.beginLoading()
         })
     }
 
@@ -105,7 +104,7 @@ export default class Mellotron extends Component {
         howler: null,
         ancestor: this,
         update: function (src) {
-            this.ancestor.setState({ errors: [] })
+            this.ancestor.beginLoading()
             this.howler = new Howl({
                 src: [src],
                 onload: () => {
@@ -139,14 +138,8 @@ export default class Mellotron extends Component {
     }
     stopLoading = () => {
         console.log('stop')
-        let timerID = setInterval(() => {
-            if (this.state.loadingProgress >= 12) {
-                clearInterval(this.timerID)
-                clearInterval(timerID)
-                this.setState({ loading: false })
-            }
-
-        }, 25)
+        this.setState({ loading: false })
+        clearInterval(this.timerID)
     }
 
     incerementProgress = () => {
