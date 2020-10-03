@@ -7,7 +7,6 @@ import {
 //components
 import Header from './components/layouts/Header'
 import SideBar from './components/layouts/SideBar'
-import SampleMenu from './components/SampleMenu'
 import Mellotron from './components/Mellotron'
 
 
@@ -20,12 +19,7 @@ import Support from './components/pages/Support'
 export default class App extends Component {
 
   state = {
-    instrument: sessionStorage.getItem('instrument') || 'Piano'
-  }
-
-  changeInstrument = (instrument) => {
-    this.setState({ instrument })
-    sessionStorage.setItem('instrument', instrument)
+    app: 'mellotron' //can be mellotron or sampler
   }
 
   render() {
@@ -35,8 +29,7 @@ export default class App extends Component {
           <Header />
           <SideBar />
           <Route exact path='/'>
-            <SampleMenu changeInstrument={this.changeInstrument} instrument={this.state.instrument} />
-            <Mellotron instrument={this.state.instrument} />
+            <Mellotron />
           </Route>
           <Route path='/about'>
             <About></About>

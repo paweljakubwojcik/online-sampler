@@ -6,9 +6,9 @@ export default class soundUploader extends Component {
     constructor(props) {
         super(props)
 
-            this.state = {
-                sound: sessionStorage.getItem('uploadedSound')
-            }
+        this.state = {
+            sound: sessionStorage.getItem('uploadedSound')
+        }
     }
 
     onSubmit = (e) => {
@@ -29,7 +29,7 @@ export default class soundUploader extends Component {
     }
 
     componentWillUnmount() {
-            sessionStorage.setItem('uploadedSound', this.state.sound)
+        sessionStorage.setItem('uploadedSound', this.state.sound)
     }
 
     render() {
