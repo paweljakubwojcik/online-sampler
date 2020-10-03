@@ -19,14 +19,18 @@ export default class Mellotron extends Component {
     constructor(props) {
         super(props)
 
+        let defaultInstrument = sessionStorage.getItem('instrument') || 'Piano'
+
         this.state = {
             instrument: {
-                name: 'Piano',
-                src: this.sounds.find(instrument => instrument.name === 'Piano').src
+                name: defaultInstrument || 'Piano',
+                src: this.sounds.find(instrument => instrument.name === defaultInstrument).src
             },
             loading: false,
             errors: []
         }
+
+        this.HOWLER.update(this.state.instrument.src)
     }
 
 
@@ -82,10 +86,10 @@ export default class Mellotron extends Component {
     }
 
 
-/**
- *
- * @param {String} path base 64 data url example: 'data:audio/mpeg;base64,//{-data-}'
- */
+    /**
+     *
+     * @param {String} path base 64 data url example: 'data:audio/mpeg;base64,//{-data-}'
+     */
     addCustomSound = (path) => {
         const instrument = { name: 'Custom', src: path }
         this.setState({ instrument }, () => {
@@ -93,26 +97,11 @@ export default class Mellotron extends Component {
         })
     }
 
-/**
- * howler object that contains reference to Howl with loaded asynchronously sound
- */
+    /**
+     * howler object that contains reference to Howl with loaded asynchronously sound
+     */
     HOWLER = {
-        howler: new Howl({
-            src: [sessionStorage.getItem('instrument').src || PianoSample],
-            onload: () => {
-                this.setState({ loading: false, errors: [] })
-            },
-            onplay: (id) => {
-                this.howler.fade(0, 0.5, 100, id)
-            },
-            onloaderror: (id, e) => {
-                this.appendError(e)
-            },
-            onplayerror: (id, e) => {
-                this.setState({ loading: false })
-                this.appendError(e)
-            }
-        }),
+        howler: null,
         ancestor: this,
         update: function (src) {
             this.ancestor.setState({ loading: true })

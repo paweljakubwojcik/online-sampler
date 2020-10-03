@@ -96,25 +96,24 @@ export default class Keyboard extends Component {
     render() {
         console.log('rendered')
         //context provider ogarnąć!!
-        console.log(this.props.howler)
-        return null
-        // return (
 
-        //     <div className="keyboard"
-        //         onMouseDown={this.onMouseDown}
-        //         onMouseUp={this.onMouseUp}
-        //         onMouseLeave={this.onMouseLeave}
-        //         onTouchStart={this.onMouseDown}
-        //         onTouchEnd={this.onMouseUp}>
+        return (
 
-        //         <div className="blackKeys">
-        //             {this.blackNotes.map(note =>
-        //                 <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} toggleEditMode={this.toggleEditMode} />)}
-        //         </div>
-        //         {this.whiteNotes.map(note =>
-        //             <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} toggleEditMode={this.toggleEditMode} />)}
-        //     </div>
+            <div className="keyboard"
+                onMouseDown={this.onMouseDown}
+                onMouseUp={this.onMouseUp}
+                onMouseLeave={this.onMouseLeave}
+                onTouchStart={this.onMouseDown}
+                onTouchEnd={this.onMouseUp}>
 
-        // )
+                <div className="blackKeys">
+                    {this.blackNotes.map(note =>
+                        <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} toggleEditMode={this.toggleEditMode} />)}
+                </div>
+                {this.whiteNotes.map(note =>
+                    <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} toggleEditMode={this.toggleEditMode} />)}
+            </div>
+
+        )
     }
 }
