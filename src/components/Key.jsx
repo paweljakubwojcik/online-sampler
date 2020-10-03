@@ -124,7 +124,9 @@ export default class key extends Component {
                 className={`key key--${this.black ? 'black' : 'white'} 
                     ${(this.state.keyPressed || this.state.clicked) ? 'key--active' : ''}
                     ${(this.props.editMode) ? 'key--editable' : ''}
-                    ${(this.state.edit && this.props.editMode) ? 'key--edit' : ''}`}>
+                    ${(this.state.edit && this.props.editMode) ? 'key--edit' : ''}
+                    ${(this.props.errors || this.props.loading) ? 'key--loading' : ''}
+                    `}>
 
                 <div className="trigger">{
                     this.state.triggerKey.map((key) => <p key={key}>{key}</p>)}

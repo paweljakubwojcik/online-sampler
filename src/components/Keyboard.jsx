@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Key from './Key'
+import ErrorMessage from './ErrorMessage'
 
 
 
@@ -94,12 +95,12 @@ export default class Keyboard extends Component {
 
 
     render() {
-        console.log('rendered')
+        let errors = this.props.errors.length !== 0
         //context provider ogarnąć!!
 
         return (
 
-            <div className="keyboard"
+            <div className={`keyboard ${this.props.loading ? "keyboard--loading" : ""}`}
                 onMouseDown={this.onMouseDown}
                 onMouseUp={this.onMouseUp}
                 onMouseLeave={this.onMouseLeave}
@@ -108,10 +109,26 @@ export default class Keyboard extends Component {
 
                 <div className="blackKeys">
                     {this.blackNotes.map(note =>
-                        <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} toggleEditMode={this.toggleEditMode} />)}
+                        <Key key={note.name}
+                            keyboardActive={this.state.active}
+                            note={note}
+                            howler={this.props.howler}
+                            editMode={this.state.editMode}
+                            toggleEditMode={this.toggleEditMode}
+                            errors={errors}
+                            loading={this.props.loading && this.props.loadingProgress < note.transpose} />)}
                 </div>
                 {this.whiteNotes.map(note =>
-                    <Key key={note.name} keyboardActive={this.state.active} note={note} howler={this.props.howler} editMode={this.state.editMode} toggleEditMode={this.toggleEditMode} />)}
+                    <Key key={note.name}
+                        keyboardActive={this.state.active}
+                        note={note}
+                        howler={this.props.howler}
+                        editMode={this.state.editMode}
+                        toggleEditMode={this.toggleEditMode}
+                        errors={errors}
+                        loading={this.props.loading && this.props.loadingProgress < note.transpose}
+                    />)}
+                <ErrorMessage errors={this.props.errors} />
             </div>
 
         )

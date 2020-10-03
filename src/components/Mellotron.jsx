@@ -105,28 +105,47 @@ export default class Mellotron extends Component {
         ancestor: this,
         update: function (src) {
             this.ancestor.setState({ loading: true })
+            this.ancestor.beginLoading()
             this.howler = new Howl({
                 src: [src],
                 onload: () => {
                     console.log(`loaded ${src}`)
                     this.ancestor.setState({ loading: false, errors: [] })
+                    this.ancestor.stopLoading()
                 },
                 onplay: (id) => {
                     this.howler.fade(0, 0.5, 100, id)
                 },
                 onloaderror: (id, e) => {
                     this.appendError(e)
-                    this.ancestor.setState({ loading: false })
                 },
                 onplayerror: (id, e) => {
-                    this.ancestor.setState({ loading: false })
                     this.appendError(e)
                 }
             })
         },
         appendError: (e) => {
             this.setState(({ errors }) => ({ errors: errors.concat(e) }))
+            this.setState({ loading: false })
+            this.stopLoading()
         }
+    }
+
+    beginLoading = () => {
+        this.setState({ loadingProgress: -12 })
+        this.timerID = setInterval(() => {
+            this.setState(({ loadingProgress }) => {
+                if (loadingProgress <= 12)
+                    loadingProgress++
+                else
+                    loadingProgress = -13
+                return { loadingProgress }
+            })
+        }, 25);
+    }
+    stopLoading = () => {
+        console.log('stop')
+        clearInterval(this.timerID);
     }
 
 
@@ -134,7 +153,7 @@ export default class Mellotron extends Component {
         return (
             <React.Fragment>
                 <SampleMenu changeInstrument={this.changeInstrument} instrument={this.state.instrument.name} />
-                <Keyboard howler={this.HOWLER} />
+                <Keyboard howler={this.HOWLER} errors={this.state.errors} loading={this.state.loading} loadingProgress={this.state.loadingProgress} />
                 <BackgroundImage instrument={this.state.instrument.name} addCustomSound={this.addCustomSound} />
             </React.Fragment>
         )
