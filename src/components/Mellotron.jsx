@@ -94,6 +94,7 @@ export default class Mellotron extends Component {
         const instrument = { name: 'Custom', src: path }
         this.setState({ instrument }, () => {
             this.HOWLER.update(this.state.instrument.src)
+            this.beginLoading()
         })
     }
 
@@ -104,13 +105,12 @@ export default class Mellotron extends Component {
         howler: null,
         ancestor: this,
         update: function (src) {
-            this.ancestor.setState({ loading: true })
-            this.ancestor.beginLoading()
+            this.ancestor.setState({ errors: [] })
             this.howler = new Howl({
                 src: [src],
                 onload: () => {
                     console.log(`loaded ${src}`)
-                    this.ancestor.setState({ loading: false, errors: [] })
+                    this.ancestor.setState({ errors: [] })
                     this.ancestor.stopLoading()
                 },
                 onplay: (id) => {
@@ -132,20 +132,31 @@ export default class Mellotron extends Component {
     }
 
     beginLoading = () => {
-        this.setState({ loadingProgress: -12 })
-        this.timerID = setInterval(() => {
-            this.setState(({ loadingProgress }) => {
-                if (loadingProgress <= 12)
-                    loadingProgress++
-                else
-                    loadingProgress = -13
-                return { loadingProgress }
-            })
-        }, 25);
+        clearInterval(this.timerID)
+        this.setState({ loadingProgress: -12, loading: true })
+        this.timerID = setInterval(this.incerementProgress, 25)
+
     }
     stopLoading = () => {
         console.log('stop')
-        clearInterval(this.timerID);
+        let timerID = setInterval(() => {
+            if (this.state.loadingProgress >= 12) {
+                clearInterval(this.timerID)
+                clearInterval(timerID)
+                this.setState({ loading: false })
+            }
+
+        }, 25)
+    }
+
+    incerementProgress = () => {
+        this.setState(({ loadingProgress }) => {
+            if (loadingProgress <= 12)
+                loadingProgress++
+            else
+                loadingProgress = -13
+            return { loadingProgress }
+        })
     }
 
 
