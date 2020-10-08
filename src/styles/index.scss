@@ -37,6 +37,7 @@ button {
     text-align: center;
     background: transparent;
     border: none;
+    outline: none;
     &:hover {
         cursor: pointer;
     }
@@ -109,20 +110,21 @@ button {
             display: inline-block;
             padding: 25px 0;
             position: relative;
+            width: fit-content;
             &::after {
                 content: "?";
                 position: absolute;
                 display: inline-block;
                 font-weight: bold;
-                font-size: 6em;
-                opacity: 0.3;
-                top: -0.3em;
+                font-size: 7em;
+                top: -30%;
+                right: 0;
                 transition: transform 0.5s, opacity 0.4s;
                 opacity: 0;
-                transform: rotateZ(45deg) translate(-150px, 150px);
+                transform: translate(-400%, 0);
             }
             &:hover::after {
-                opacity: 0.3;
+                opacity: 0.1;
                 transform: rotateZ(45deg) translate(0, 0);
             }
         }
@@ -155,9 +157,10 @@ button {
             content: "";
             display: block;
             height: 1px;
-            background-color: #70707079;
+            background-color: $primaryFontColor;
             flex: 1;
-            transform: translateY(2px);
+            opacity: 0.1;
+            // transform: translateY(2px);
             margin-left: 5px;
         }
     }
