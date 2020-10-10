@@ -138,7 +138,7 @@ export default class Mellotron extends Component {
 
     beginLoading = () => {
         clearInterval(this.timerID)
-        this.setState({ loadingProgress: -12, loading: true })
+        this.setState({ loadingProgress: 0, loading: true, errors: [] })
         this.timerID = setInterval(this.incerementProgress, 25)
 
     }
@@ -149,10 +149,10 @@ export default class Mellotron extends Component {
 
     incerementProgress = () => {
         this.setState(({ loadingProgress }) => {
-            if (loadingProgress <= 12)
+            if (loadingProgress <= 24)
                 loadingProgress++
             else
-                loadingProgress = -13
+                loadingProgress = 0
             return { loadingProgress }
         })
     }

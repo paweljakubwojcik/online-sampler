@@ -52,14 +52,17 @@ export default class Keyboard extends Component {
                 this.blackNotes.push({ name: note.name, black: true })
             } else {
                 if (note.name.length === 2)
-                    this.whiteNotes.push({ name: note.name, defaultTriggerKeys: note.defaultTriggerKeys, black: false, transpose: i })
+                    this.whiteNotes.push({ name: note.name, defaultTriggerKeys: note.defaultTriggerKeys, black: false, transpose: i, loadingOrder: Math.random() * 24 })
                 if (note.name.length === 3)
-                    this.blackNotes.push({ name: note.name, defaultTriggerKeys: note.defaultTriggerKeys, black: true, transpose: i })
+                    this.blackNotes.push({ name: note.name, defaultTriggerKeys: note.defaultTriggerKeys, black: true, transpose: i, loadingOrder: Math.random() * 24 })
                 i++;
             }
-
         });
+    }
 
+    assignNewLoadingOrder = () => {
+        this.blackNotes.forEach(note => { note.loadingOrder = Math.random() * 24 })
+        this.whiteNotes.forEach(note => { note.loadingOrder = Math.random() * 24 })
     }
 
     state = {
@@ -96,8 +99,10 @@ export default class Keyboard extends Component {
 
     render() {
         let errors = this.props.errors.length !== 0
-        //context provider ogarnąć!!
-
+        if (this.props.loadingProgress === 0) {
+            console.log('new order')
+            this.assignNewLoadingOrder()
+        }
         return (
 
             <div className={`keyboard ${this.props.loading ? "keyboard--loading" : ""}`}
@@ -116,7 +121,7 @@ export default class Keyboard extends Component {
                             editMode={this.state.editMode}
                             toggleEditMode={this.toggleEditMode}
                             errors={errors}
-                            loading={this.props.loading && this.props.loadingProgress < note.transpose} />)}
+                            loading={this.props.loading && this.props.loadingProgress < note.loadingOrder} />)}
                 </div>
                 {this.whiteNotes.map(note =>
                     <Key key={note.name}
@@ -126,7 +131,7 @@ export default class Keyboard extends Component {
                         editMode={this.state.editMode}
                         toggleEditMode={this.toggleEditMode}
                         errors={errors}
-                        loading={this.props.loading && this.props.loadingProgress < note.transpose}
+                        loading={this.props.loading && this.props.loadingProgress < note.loadingOrder}
                     />)}
                 <ErrorMessage errors={this.props.errors} />
             </div>
