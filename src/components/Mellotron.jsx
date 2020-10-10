@@ -105,6 +105,8 @@ export default class Mellotron extends Component {
         ancestor: this,
         update: function (src) {
             this.ancestor.beginLoading()
+            if (this.howler)
+                this.howler.stop()
             this.howler = new Howl({
                 src: [src],
                 onload: () => {
