@@ -370,6 +370,10 @@ button:hover {
   cursor: default;
 }
 
+#C1 {
+  border-radius: 10px 0 0 10px;
+}
+
 .key {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -415,10 +419,15 @@ button:hover {
   color: #1b1b1b;
 }
 
+.key--white:last-of-type {
+  border-radius: 0 10px 10px 0;
+}
+
 .key--black {
   width: 4%;
   background-color: #1b1b1b;
   color: #fff;
+  border-radius: 0 0 10px 10px;
 }
 
 .key--black:first-of-type {

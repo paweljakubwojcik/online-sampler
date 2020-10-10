@@ -16,6 +16,10 @@
     }
 }
 
+#C1{
+    border-radius: 10px 0 0 10px;
+ }
+
 .key {
     display: flex;
     flex-direction: column;
@@ -41,6 +45,9 @@
         flex: 1;
         background-color: #fff;
         color: #1b1b1b;
+        &:last-of-type{
+            border-radius: 0 10px 10px 0;
+        }   
     }
     &--black {
         &:first-of-type {
@@ -52,6 +59,8 @@
         width: 4%;
         background-color: #1b1b1b;
         color: #fff;
+
+        border-radius: 0 0 10px 10px;
     }
 
     &--active {
