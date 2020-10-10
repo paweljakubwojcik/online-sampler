@@ -30,6 +30,10 @@ export default class Mellotron extends Component {
             errors: []
         }
 
+
+    }
+
+    componentDidMount() {
         this.HOWLER.update(this.state.instrument.src)
     }
 
@@ -139,7 +143,6 @@ export default class Mellotron extends Component {
 
     }
     stopLoading = () => {
-        console.log('stop')
         this.setState({ loading: false })
         clearInterval(this.timerID)
     }
