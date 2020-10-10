@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useRouteMatch } from 'react-router-dom'
 
-export default class Links extends Component {
-    render() {
-        return (
-            <div className="links">
-                <Link to="/about">How it works?</Link>
-                <Link to="/creators">Who made it?</Link>
-                <Link to="/learn-more">Learn more</Link>
-            </div>
-        )
-    }
+export default function Links() {
+
+    return (
+        <div className="links">
+            <Link to="/about" className={`link ${useRouteMatch('/about') ? 'link--active' : ''}`}>How it works?</Link>
+            <Link to="/creators" className={`link ${useRouteMatch('/creators') ? 'link--active' : ''}`}>Who made it?</Link>
+            <Link to="/learn-more" className={`link ${useRouteMatch('/learn-more') ? 'link--active' : ''}`}>Learn more</Link>
+        </div>
+    )
+
 }

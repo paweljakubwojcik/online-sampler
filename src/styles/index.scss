@@ -143,16 +143,47 @@ $sideBarWidth: 12.5em;
     grid-row: 1;
     grid-column: 2/3;
 
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    justify-items: center;
     align-items: center;
+    grid-template-columns: repeat(3,1fr);
     margin-top: 2%;
     margin-left: 20%;
-    a {
+    .link{
         font-size: .9em;
         display: inline-block;
         position: relative;
         width: fit-content;
+        text-align: center;
+
+        transition: all .5s;
+        
+        &::after {
+            content: "";
+            display: block;
+            width: 40%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0) scaleX(0);
+            border-bottom: 1px solid #252525;
+            transition: transform 0.5s;
+        }
+
+        &:hover {
+            filter: brightness(2);
+            &::after {
+                transform: translate(-50%, 0) scaleX(2.5);
+            }
+        }
+
+        &--active {
+            font-weight: bold;
+            &::after {
+                transform: translate(-50%) scaleX(2);
+            }
+        }
     }
 }
 

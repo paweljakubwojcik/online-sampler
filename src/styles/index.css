@@ -169,26 +169,64 @@ button:hover {
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2/3;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   margin-top: 2%;
   margin-left: 20%;
 }
 
-.links a {
+.links .link {
   font-size: .9em;
   display: inline-block;
   position: relative;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  text-align: center;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.links .link::after {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0) scaleX(0);
+          transform: translate(-50%, 0) scaleX(0);
+  border-bottom: 1px solid #252525;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.links .link:hover {
+  -webkit-filter: brightness(2);
+          filter: brightness(2);
+}
+
+.links .link:hover::after {
+  -webkit-transform: translate(-50%, 0) scaleX(2.5);
+          transform: translate(-50%, 0) scaleX(2.5);
+}
+
+.links .link--active {
+  font-weight: bold;
+}
+
+.links .link--active::after {
+  -webkit-transform: translate(-50%) scaleX(2);
+          transform: translate(-50%) scaleX(2);
 }
 
 .sampleMenu {
