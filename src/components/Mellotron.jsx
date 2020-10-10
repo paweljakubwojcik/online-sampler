@@ -72,19 +72,9 @@ export default class Mellotron extends Component {
     changeInstrument = (name) => {
 
         let newInstrument = this.sounds.find(instrument => instrument.name === name)
-        if (newInstrument.src)
-            this.setState({ instrument: newInstrument }, () => {
-                this.HOWLER.update(this.state.instrument.src)
-            })
-        else
-            this.setState(
-                ({ instrument }) =>
-                    ({
-                        instrument: {
-                            name: newInstrument.name,
-                            src: instrument.src
-                        }
-                    }))
+        this.setState({ instrument: newInstrument }, () => {
+            this.HOWLER.update(this.state.instrument.src)
+        })
 
         sessionStorage.setItem('instrument', newInstrument.name)
     }
@@ -96,6 +86,8 @@ export default class Mellotron extends Component {
      */
     addCustomSound = (path) => {
         const instrument = { name: 'Custom', src: path }
+        this.sounds.pop()
+        this.sounds.push(instrument)
         this.setState({ instrument }, () => {
             this.HOWLER.update(this.state.instrument.src)
         })
