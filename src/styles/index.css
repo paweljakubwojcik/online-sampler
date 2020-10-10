@@ -79,11 +79,17 @@ button:hover {
   margin: 2vh 0;
 }
 
-.mainHeader a {
+.mainHeader .headerContainer {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 11.5em 1fr;
       grid-template-columns: 11.5em 1fr;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
 .mainHeader h1 {
@@ -95,6 +101,10 @@ button:hover {
 
 .mainHeader .logo {
   border-bottom: 1px #191919 solid;
+  -webkit-transition: -webkit-filter 0.5s;
+  transition: -webkit-filter 0.5s;
+  transition: filter 0.5s;
+  transition: filter 0.5s, -webkit-filter 0.5s;
 }
 
 .mainHeader .logo--left {
@@ -117,9 +127,19 @@ button:hover {
 
 .mainHeader p {
   margin: 5px 3%;
-  font-size: .8em;
+  font-size: 0.8em;
   letter-spacing: 2px;
   color: inherit;
+}
+
+.mainHeader--subPage .logo {
+  -webkit-filter: brightness(0);
+          filter: brightness(0);
+}
+
+.mainHeader--subPage .headerContainer {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 .sideBar {
@@ -679,9 +699,9 @@ button:hover {
   -ms-grid-row: 2;
   -ms-grid-row-span: 3;
   grid-row: 2/5;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 2;
-  grid-column: 3/5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

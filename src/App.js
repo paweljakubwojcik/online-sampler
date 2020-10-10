@@ -15,7 +15,6 @@ import Mellotron from './components/Mellotron'
 import About from './components/pages/About'
 import Creators from './components/pages/Creators'
 import LearnMore from './components/pages/LearnMore'
-import Support from './components/pages/Support'
 
 export default class App extends Component {
 
@@ -28,8 +27,8 @@ export default class App extends Component {
       <div className="App">
         <Router>
           <Header />
-          <SideBar />
           <Route exact path='/'>
+            <SideBar />
             <Mellotron />
           </Route>
           <Route path='/about'>
@@ -40,9 +39,6 @@ export default class App extends Component {
           </Route>
           <Route path='/learn-more'>
             <LearnMore />
-          </Route>
-          <Route path='/support'>
-            <Support />
           </Route>
         </Router>
       </div>
