@@ -3,13 +3,12 @@ import {
   BrowserRouter as Router,
   Route,
 } from "react-router-dom";
+import { changeOrientation } from './globalMethods'
 
 //components
 import Header from './components/layouts/Header'
 import SideBar from './components/layouts/SideBar'
 import Mellotron from './components/Mellotron'
-
-
 
 //pages
 import About from './components/pages/About'
@@ -21,6 +20,13 @@ export default class App extends Component {
   state = {
     app: 'mellotron' //can be mellotron or sampler
   }
+
+  componentDidMount() {
+    window.addEventListener('resize', changeOrientation)
+    window.addEventListener('load', changeOrientation)
+  }
+
+
 
   render() {
     return (

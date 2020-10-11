@@ -3,6 +3,11 @@
           box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+  position: relative;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -10,6 +15,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #f8c878;
   font-size: 16px;
+  -webkit-transition: font-size 0.5s;
+  transition: font-size 0.5s;
 }
 
 code {
@@ -72,10 +79,6 @@ button:hover {
   display: grid;
   -ms-grid-columns: 1fr 2fr;
       grid-template-columns: 1fr 2fr;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 2vh;
-  left: 0;
   margin: 2vh 0;
 }
 
@@ -182,15 +185,15 @@ button:hover {
 }
 
 .links .link {
-  font-size: .9em;
+  font-size: 0.9em;
   display: inline-block;
   position: relative;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   text-align: center;
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .links .link::after {
@@ -399,10 +402,10 @@ button:hover {
   pointer-events: all;
   -webkit-transform: perspective(1000px) rotateX(0deg);
           transform: perspective(1000px) rotateX(0deg);
-  -webkit-transition: opacity 0.2s, -webkit-transform 0.05s;
-  transition: opacity 0.2s, -webkit-transform 0.05s;
-  transition: opacity 0.2s, transform 0.05s;
-  transition: opacity 0.2s, transform 0.05s, -webkit-transform 0.05s;
+  -webkit-transition: -webkit-filter 0.2s, -webkit-transform 0.05s;
+  transition: -webkit-filter 0.2s, -webkit-transform 0.05s;
+  transition: filter 0.2s, transform 0.05s;
+  transition: filter 0.2s, transform 0.05s, -webkit-filter 0.2s, -webkit-transform 0.05s;
 }
 
 .key:hover {
@@ -799,23 +802,6 @@ button:hover {
           transform: rotateZ(45deg) translate(-50%, 50%);
 }
 
-@media (orientation: portrait) {
-  html {
-    -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
-    overflow-x: hidden;
-    position: relative;
-  }
-  .App {
-    max-width: 100vh;
-    height: 100vw;
-  }
-  body {
-    width: 100vh;
-    height: 100vw;
-  }
-}
-
 @media screen and (min-width: 3000px) {
   body {
     font-size: 32px;
@@ -834,7 +820,7 @@ button:hover {
   }
 }
 
-@media (max-width: 400px), (max-height: 400px) {
+@media screen and (max-width: 400px), (max-height: 400px) {
   body {
     font-size: 8px;
   }

@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    position: relative;
+}
+
 $primaryFontColor: #191919;
 $sideBarColor: rgb(255, 255, 255);
 $backgroundColor: #f8c878;
@@ -15,6 +20,7 @@ body {
 
     background-color: $backgroundColor;
     font-size: 16px;
+    transition: font-size 0.5s;
 }
 
 code {
@@ -67,16 +73,13 @@ $sideBarWidth: 12.5em;
     display: grid;
     grid-template-columns: 1fr 2fr;
 
-    .headerContainer  {
+    .headerContainer {
         display: grid;
         grid-template-columns: $sideBarWidth 1fr;
         transform-origin: left;
         transition: transform 0.5s;
     }
 
-    position: sticky;
-    top: 2vh;
-    left: 0;
     margin: 2vh 0;
 
     h1 {
@@ -146,18 +149,18 @@ $sideBarWidth: 12.5em;
     display: grid;
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 2%;
     margin-left: 20%;
-    .link{
-        font-size: .9em;
+    .link {
+        font-size: 0.9em;
         display: inline-block;
         position: relative;
         width: fit-content;
         text-align: center;
 
-        transition: all .5s;
-        
+        transition: all 0.5s;
+
         &::after {
             content: "";
             display: block;
@@ -308,21 +311,6 @@ $sideBarWidth: 12.5em;
 @import "./soundUploader";
 @import "./pages";
 
-@media (orientation: portrait) {
-    html {
-        transform: rotate(90deg);
-        overflow-x: hidden;
-        position: relative;
-    }
-    .App {
-        max-width: 100vh;
-        height: 100vw;
-    }
-    body {
-        width: 100vh;
-        height: 100vw;
-    }
-}
 
 @media screen and (min-width: 3000px) {
     body {
@@ -342,7 +330,7 @@ $sideBarWidth: 12.5em;
     }
 }
 
-@media (max-width: 400px), (max-height: 400px) {
+@media screen and (max-width: 400px), (max-height: 400px) {
     body {
         font-size: 8px;
     }
