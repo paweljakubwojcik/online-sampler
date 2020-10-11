@@ -1,11 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import SubPage from './SubPage'
 
 export default function Creators() {
     return (
-        <div className="page page__Creators">
-            <h1>Creators</h1>
-            <Link className="back" to='/'>Go back</Link>
-        </div>
+        <SubPage name='creators'>
+            <h1>Who made it?</h1>
+        </SubPage>
     )
 }

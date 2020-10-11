@@ -1,11 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import SubPage from './SubPage'
 
 export default function LearnMore() {
     return (
-        <div className="page page__learnMore">
+        <SubPage name='learnMore'>
             <h1>Learn More</h1>
-            <Link className="back" to='/'>Go back</Link>
-        </div>
+        </SubPage>
     )
 }
