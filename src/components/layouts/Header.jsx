@@ -3,17 +3,17 @@ import Links from './Links'
 import { Link, useLocation } from 'react-router-dom'
 import { changeOrientation } from '../../globalMethods'
 
-export default function Header(props) {
+export default function Header() {
 
     let location = useLocation();
     let isSubpage = location.pathname !== '/'
 
     return (
         <header className={`mainHeader ${isSubpage ? 'mainHeader--subPage' : ''}`}>
-            <Link to='/' className='headerContainer' onClick={changeOrientation}>
-                <h1 className='logo logo--left'>Online</h1>
-                <h1 className='logo logo--right'>Mellotron </h1>
-            </Link>
+            <h1 className='headerContainer' >
+                <Link to='/' className='logo logo--left' onClick={changeOrientation}>Online</Link>
+                <Link to='/' className='logo logo--right' onClick={changeOrientation}>Mellotron </Link>
+            </h1>
             <Links />
             <p>Awake creativity</p>
         </header>

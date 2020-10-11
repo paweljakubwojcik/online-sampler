@@ -6,7 +6,7 @@ import { changeOrientation } from '../../globalMethods'
 export default function Links() {
 
     return (
-        <div className="links">
+        <menu className="links">
             <Link to="/about"
                 className={`link ${useRouteMatch('/about') ? 'link--active' : ''}`}
                 onClick={changeOrientation}>
@@ -22,7 +22,7 @@ export default function Links() {
                 onClick={changeOrientation}>
                 Learn more
                 </Link>
-        </div>
+        </menu>
     )
 
 }

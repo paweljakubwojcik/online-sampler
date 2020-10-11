@@ -20,7 +20,8 @@ export default class SampleMenu extends Component {
                     {this.instruments.map(instrument =>
                         <button key={instrument} onClick={this.onClick}
                             className={`menuButton sampleMenu__button ${activeInstrument === instrument ? 'sampleMenu__button--active' : ''}`}
-                            value={instrument}>
+                            value={instrument}
+                            aria-label={instrument}>
                             {instrument}
                         </button>
                     )}

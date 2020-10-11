@@ -35,7 +35,7 @@
 
     pointer-events: all;
     transform: perspective(1000px) rotateX(0deg);
-    transition: filter 0.2s, transform 0.05s;
+    transition: filter 0.2s, transform 0.05s, opacity .4s;
     &:hover {
         cursor: pointer;
         filter: opacity(0.8);

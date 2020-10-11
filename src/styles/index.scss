@@ -27,12 +27,15 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-a {
+a,
+a:visited {
     color: inherit;
     text-decoration: none;
     filter: invert(0);
     transition: filter 0.2s;
-    &:hover {
+    &:hover,
+    &:focus {
+        outline: none;
         filter: invert(0.03);
     }
 }
@@ -47,6 +50,9 @@ button {
     outline: none;
     &:hover {
         cursor: pointer;
+    }
+    &:focus {
+        outline: none;
     }
 }
 
@@ -72,6 +78,7 @@ $sideBarWidth: 12.5em;
 
     display: grid;
     grid-template-columns: 1fr 2fr;
+    margin: 2vh 0;
 
     .headerContainer {
         display: grid;
@@ -79,19 +86,18 @@ $sideBarWidth: 12.5em;
         transform-origin: left;
         transition: transform 0.5s;
     }
-
-    margin: 2vh 0;
-
     h1 {
-        font-size: 2.3em;
-        letter-spacing: 0.625rem;
-
-        display: inline-block;
+        font-size: 1em;
         margin: 0;
     }
+
     .logo {
         border-bottom: 1px $primaryFontColor solid;
         transition: filter 0.5s;
+        display: inline-block;
+        font-size: 2.3em;
+        letter-spacing: 0.3em;
+        margin: 0;
 
         &--left {
             text-align: center;
@@ -174,7 +180,8 @@ $sideBarWidth: 12.5em;
             transition: transform 0.5s;
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
             filter: brightness(2);
             &::after {
                 transform: translate(-50%, 0) scaleX(2.5);
@@ -256,7 +263,8 @@ $sideBarWidth: 12.5em;
             transition: transform 0.5s;
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
             transform: translateY(-5%);
             &::after {
                 transform: translate(-50%, 5%) scaleX(2.5);
@@ -310,7 +318,6 @@ $sideBarWidth: 12.5em;
 
 @import "./soundUploader";
 @import "./pages";
-
 
 @media screen and (min-width: 3000px) {
     body {

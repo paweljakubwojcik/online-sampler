@@ -23,7 +23,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-a {
+a,
+a:visited {
   color: inherit;
   text-decoration: none;
   -webkit-filter: invert(0);
@@ -34,7 +35,10 @@ a {
   transition: filter 0.2s, -webkit-filter 0.2s;
 }
 
-a:hover {
+a:hover, a:focus,
+a:visited:hover,
+a:visited:focus {
+  outline: none;
   -webkit-filter: invert(0.03);
           filter: invert(0.03);
 }
@@ -51,6 +55,10 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+button:focus {
+  outline: none;
 }
 
 .App {
@@ -96,9 +104,7 @@ button:hover {
 }
 
 .mainHeader h1 {
-  font-size: 2.3em;
-  letter-spacing: 0.625rem;
-  display: inline-block;
+  font-size: 1em;
   margin: 0;
 }
 
@@ -108,6 +114,10 @@ button:hover {
   transition: -webkit-filter 0.5s;
   transition: filter 0.5s;
   transition: filter 0.5s, -webkit-filter 0.5s;
+  display: inline-block;
+  font-size: 2.3em;
+  letter-spacing: 0.3em;
+  margin: 0;
 }
 
 .mainHeader .logo--left {
@@ -213,12 +223,12 @@ button:hover {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-.links .link:hover {
+.links .link:hover, .links .link:focus {
   -webkit-filter: brightness(2);
           filter: brightness(2);
 }
 
-.links .link:hover::after {
+.links .link:hover::after, .links .link:focus::after {
   -webkit-transform: translate(-50%, 0) scaleX(2.5);
           transform: translate(-50%, 0) scaleX(2.5);
 }
@@ -326,12 +336,12 @@ button:hover {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-.sampleMenu__button:hover {
+.sampleMenu__button:hover, .sampleMenu__button:focus {
   -webkit-transform: translateY(-5%);
           transform: translateY(-5%);
 }
 
-.sampleMenu__button:hover::after {
+.sampleMenu__button:hover::after, .sampleMenu__button:focus::after {
   -webkit-transform: translate(-50%, 5%) scaleX(2.5);
           transform: translate(-50%, 5%) scaleX(2.5);
 }
@@ -402,10 +412,10 @@ button:hover {
   pointer-events: all;
   -webkit-transform: perspective(1000px) rotateX(0deg);
           transform: perspective(1000px) rotateX(0deg);
-  -webkit-transition: -webkit-filter 0.2s, -webkit-transform 0.05s;
-  transition: -webkit-filter 0.2s, -webkit-transform 0.05s;
-  transition: filter 0.2s, transform 0.05s;
-  transition: filter 0.2s, transform 0.05s, -webkit-filter 0.2s, -webkit-transform 0.05s;
+  -webkit-transition: opacity .4s, -webkit-filter 0.2s, -webkit-transform 0.05s;
+  transition: opacity .4s, -webkit-filter 0.2s, -webkit-transform 0.05s;
+  transition: filter 0.2s, transform 0.05s, opacity .4s;
+  transition: filter 0.2s, transform 0.05s, opacity .4s, -webkit-filter 0.2s, -webkit-transform 0.05s;
 }
 
 .key:hover {
