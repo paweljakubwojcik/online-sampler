@@ -7,9 +7,7 @@ html {
     position: relative;
 }
 
-$primaryFontColor: #191919;
-$sideBarColor: rgb(255, 255, 255);
-$backgroundColor: #f8c878;
+@import 'variables';
 
 body {
     margin: 0;
@@ -337,7 +335,7 @@ $sideBarWidth: 12.5em;
     }
 }
 
-@media screen and (max-width: 400px), (max-height: 400px) {
+@media screen and (max-width: 500px), (max-height: 400px) {
     body {
         font-size: 8px;
     }

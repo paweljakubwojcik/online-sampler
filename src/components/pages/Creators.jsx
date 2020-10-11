@@ -1,10 +1,11 @@
 import React from 'react'
 import SubPage from './SubPage'
+import Header from './Header'
 
 export default function Creators() {
     return (
         <SubPage name='creators'>
-            <h1>Who made it?</h1>
+            <Header>Who made it?</Header>
         </SubPage>
     )
 }
