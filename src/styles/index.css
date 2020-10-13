@@ -71,7 +71,6 @@ button:focus {
       grid-template-columns: 12.5em 3fr 3fr;
   -ms-grid-rows: 0.8fr 2fr 4fr 0.4fr;
       grid-template-rows: 0.8fr 2fr 4fr 0.4fr;
-  font-family: "Nirmala UI";
   color: #191919;
   position: relative;
 }
@@ -192,6 +191,7 @@ button:focus {
       grid-template-columns: repeat(3, 1fr);
   margin-top: 2%;
   margin-left: 20%;
+  padding: 0;
 }
 
 .links .link {
@@ -757,9 +757,6 @@ button:focus {
 }
 
 .page {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 3;
-  grid-row: 2/5;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-column: 1/4;
@@ -776,7 +773,6 @@ button:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 1000px;
 }
 
 .page h1 {
@@ -784,7 +780,7 @@ button:focus {
 }
 
 .page .back {
-  margin: auto auto 5% 5%;
+  margin: 3% auto 3% 5%;
   position: relative;
   display: inline-block;
 }
@@ -828,7 +824,7 @@ button:focus {
 .subHeader h2 {
   position: relative;
   z-index: 2;
-  letter-spacing: .6em;
+  letter-spacing: 0.6em;
 }
 
 .subHeader .label {
@@ -863,6 +859,86 @@ button:focus {
   background-color: transparent;
   position: absolute;
   z-index: 2;
+}
+
+.section {
+  font-family: "Segoe UI";
+  font-size: 0.9em;
+  letter-spacing: 0.3em;
+  line-height: 2.3em;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  position: relative;
+  min-height: 70vmin;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 5%;
+}
+
+.section .text {
+  min-width: 50vw;
+  margin: 6%;
+  z-index: 2;
+}
+
+.section:nth-of-type(2n) {
+  background-color: #fff;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.section--head img {
+  width: 60vmax;
+  position: absolute;
+  right: 55%;
+  z-index: -1;
+}
+
+.section--head .text {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-column-align: left;
+      justify-self: left;
+}
+
+.section--mid {
+  overflow: hidden;
+}
+
+.section--mid img {
+  width: 60vmax;
+  right: 25%;
+  top: 50%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  position: absolute;
+}
+
+.section--hero {
+  overflow: initial;
+}
+
+.section--hero .heroImage {
+  width: initial;
+  z-index: 10;
+  bottom: 0;
+  right: 50%;
+  height: 105%;
+}
+
+.section--hero .text {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  color: #fff;
+  position: relative;
+  z-index: 11;
 }
 
 @media screen and (min-width: 3000px) {

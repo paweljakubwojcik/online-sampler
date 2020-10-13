@@ -64,7 +64,6 @@ $sideBarWidth: 12.5em;
     grid-template-columns: $sideBarWidth 3fr 3fr;
     grid-template-rows: 0.8fr 2fr 4fr 0.4fr;
 
-    font-family: "Nirmala UI";
     color: $primaryFontColor;
     position: relative;
 }
@@ -156,6 +155,7 @@ $sideBarWidth: 12.5em;
     grid-template-columns: repeat(3, 1fr);
     margin-top: 2%;
     margin-left: 20%;
+    padding:0;
     .link {
         font-size: 0.9em;
         display: inline-block;

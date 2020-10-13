@@ -7,6 +7,6 @@ ReactDOM.render(
 
   <App />,
 
-  document.querySelector('body')
+  document.querySelector('.container')
 );
 
