@@ -6,7 +6,9 @@ export default function SubPage(props) {
     return (
         <div className={"page page__" + props.name}>
             {props.children}
-            <Link className="back" to='/' onClick={changeOrientation}>Go back</Link>
+            <section className="section section--footer">
+                <Link className="back" to='/' onClick={changeOrientation}>Go back</Link>
+            </section>
         </div>
     )
 }

@@ -18,7 +18,7 @@
         &::before {
             content: "";
             position: absolute;
-            bottom: 1px;
+            bottom: 25%;
             left: -10px;
             display: block;
             width: 1em;
@@ -87,7 +87,7 @@
     display: grid;
     justify-items: center;
     align-items: center;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     position: relative;
     min-height: 70vmin;
     width: 100%;
@@ -97,11 +97,12 @@
 
     .text {
         min-width: 50vw;
+        width: 80%;
         margin: 6%;
         z-index: 2;
     }
 
-    &:nth-of-type(2n) {
+    &:nth-of-type(even) {
         background-color: #fff;
         justify-content: flex-start;
     }
@@ -126,8 +127,8 @@
     img {
         width: 60vmax;
         right: 25%;
-        top:50%;
-        transform: translate(50%,-50%);
+        top: 50%;
+        transform: translate(50%, -50%);
         position: absolute;
     }
 }
@@ -137,14 +138,54 @@
     .heroImage {
         width: initial;
         z-index: 10;
-        bottom:0;
+        bottom: 0;
         right: 50%;
         height: 105%;
     }
     .text {
         justify-self: center;
-        color:#fff;
+        color: #fff;
         position: relative;
         z-index: 11;
     }
+}
+
+.socials {
+    min-height: initial;
+    color: #fff;
+    display: flex;
+
+    ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin: 3% 0;
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                span{
+                    font-weight: bold;
+                    font-size: .9em;
+                }
+            }
+           
+        }
+
+        .icon {
+            font-size: 5em;
+        }
+    }
+}
+
+.section--footer {
+    min-height: initial;
+}
+
+.shortText{
+    max-width: 40%;
 }

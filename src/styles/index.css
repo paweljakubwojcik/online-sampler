@@ -788,7 +788,7 @@ button:focus {
 .page .back::before {
   content: "";
   position: absolute;
-  bottom: 1px;
+  bottom: 25%;
   left: -10px;
   display: block;
   width: 1em;
@@ -872,8 +872,8 @@ button:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
   position: relative;
   min-height: 70vmin;
   width: 100%;
@@ -883,11 +883,12 @@ button:focus {
 
 .section .text {
   min-width: 50vw;
+  width: 80%;
   margin: 6%;
   z-index: 2;
 }
 
-.section:nth-of-type(2n) {
+.section:nth-of-type(even) {
   background-color: #fff;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -939,6 +940,60 @@ button:focus {
   color: #fff;
   position: relative;
   z-index: 11;
+}
+
+.socials {
+  min-height: initial;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.socials ul {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
+}
+
+.socials ul li {
+  margin: 3% 0;
+}
+
+.socials ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.socials ul li a span {
+  font-weight: bold;
+  font-size: .9em;
+}
+
+.socials ul .icon {
+  font-size: 5em;
+}
+
+.section--footer {
+  min-height: initial;
+}
+
+.shortText {
+  max-width: 40%;
 }
 
 @media screen and (min-width: 3000px) {
