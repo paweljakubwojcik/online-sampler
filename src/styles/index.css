@@ -967,9 +967,8 @@ button:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   list-style: none;
   padding: 0;
 }
@@ -978,7 +977,8 @@ button:focus {
   margin: 3% 0;
 }
 
-.socials ul li a {
+.socials ul li a,
+.socials ul li a:visited {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -991,12 +991,48 @@ button:focus {
           align-items: center;
 }
 
-.socials ul li a span {
+.socials ul li a label,
+.socials ul li a:visited label {
+  pointer-events: none;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.socials ul li a span,
+.socials ul li a:visited span {
   font-weight: bold;
   font-size: 0.9em;
+  letter-spacing: initial;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.socials ul li a:hover .icon, .socials ul li a:focus .icon,
+.socials ul li a:visited:hover .icon,
+.socials ul li a:visited:focus .icon {
+  -webkit-transform: translateY(20%) scale(1.1);
+          transform: translateY(20%) scale(1.1);
+}
+
+.socials ul li a:hover span, .socials ul li a:focus span,
+.socials ul li a:visited:hover span,
+.socials ul li a:visited:focus span {
+  -webkit-transform: translateY(-260%) scale(1.1);
+          transform: translateY(-260%) scale(1.1);
 }
 
 .socials ul .icon {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
   font-size: 5em;
 }
 

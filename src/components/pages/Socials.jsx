@@ -8,45 +8,45 @@ import {
     faLinkedin
 } from '@fortawesome/free-brands-svg-icons'
 
+import IconSocial from './IconSocial'
+
 export default function Socials() {
     return (
         <section className="section socials">
             <ul>
                 <li>
                     <a href="http://instagram.com">
-                        <FontAwesomeIcon className='icon' icon={faInstagramSquare}></FontAwesomeIcon>
-                        <span>Follow</span>
-                    </a>
-
-                </li>
-                <li>
-                    <a href="http://instagram.com">
-                        <FontAwesomeIcon className='icon' icon={faFacebookSquare}></FontAwesomeIcon>
-                        <span>Like</span>
+                        <IconSocial icon={faInstagramSquare}>
+                            Follow
+                        </IconSocial>
                     </a>
                 </li>
                 <li>
                     <a href="http://instagram.com">
-                        <FontAwesomeIcon className='icon' icon={faGitSquare}></FontAwesomeIcon>
-                        <span>Collaborate</span>
+                        <IconSocial icon={faFacebookSquare}>
+                            Like
+                        </IconSocial>
                     </a>
                 </li>
                 <li>
                     <a href="http://instagram.com">
-                        <FontAwesomeIcon className='icon' icon={faYoutubeSquare}></FontAwesomeIcon>
-                        <span>Watch</span>
+                        <IconSocial icon={faGitSquare}>
+                            Collaborate
+                        </IconSocial>
                     </a>
                 </li>
                 <li>
                     <a href="http://instagram.com">
-                        <FontAwesomeIcon className='icon' icon={faInstagramSquare}></FontAwesomeIcon>
-                        <span>Follow</span>
+                        <IconSocial icon={faYoutubeSquare}>
+                            Watch
+                        </IconSocial>
                     </a>
                 </li>
                 <li>
                     <a href="http://instagram.com">
-                        <FontAwesomeIcon className='icon' icon={faLinkedin}></FontAwesomeIcon>
-                        <span>Link In</span>
+                        <IconSocial icon={faLinkedin}>
+                            Link In
+                    </IconSocial>
                     </a>
                 </li>
             </ul>

@@ -162,24 +162,44 @@
     ul {
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         list-style: none;
         padding: 0;
 
         li {
             margin: 3% 0;
-            a {
+            a,
+            a:visited {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                label {
+                    pointer-events: none;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
                 span {
                     font-weight: bold;
                     font-size: 0.9em;
+                    letter-spacing: initial;
+                    transition: transform 0.5s;
+                }
+
+                &:hover,
+                &:focus {
+                    .icon {
+                        transform: translateY(20%) scale(1.1);
+                    }
+                    span {
+                        transform: translateY(-260%) scale(1.1);
+                    }
                 }
             }
         }
 
         .icon {
+            transition: transform 0.3s;
             font-size: 5em;
         }
     }
