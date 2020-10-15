@@ -141,6 +141,25 @@ $sideBarWidth: 12.5em;
     width: 100%;
     height: 100%;
     background-color: $sideBarColor;
+
+    .advice{
+        grid-row: 3;
+        justify-self: stretch;
+        align-self: stretch;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        padding: 10%;
+
+        font-size: .9em;
+        font-weight: lighter;
+        letter-spacing: .3em;
+        line-height: 2em;
+    }
+
 }
 
 .links {

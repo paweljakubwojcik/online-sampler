@@ -148,7 +148,6 @@
     }
     .text {
         justify-self: center;
-        color: #fff;
         position: relative;
         z-index: 11;
     }
@@ -183,7 +182,7 @@
                     font-weight: bold;
                     font-size: 0.9em;
                     letter-spacing: initial;
-                    transition: transform 0.5s;
+                    transition: transform 0.3s;
                 }
 
                 &:hover,

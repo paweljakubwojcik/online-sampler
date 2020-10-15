@@ -13,7 +13,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8c878;
+  background-color: #fbc86f;
   font-size: 16px;
   -webkit-transition: font-size 0.5s;
   transition: font-size 0.5s;
@@ -123,7 +123,7 @@ button:focus {
   text-align: center;
   -ms-grid-column: 1;
   grid-column: 1;
-  color: #f8c878;
+  color: #fbc86f;
   margin-left: auto;
 }
 
@@ -171,6 +171,32 @@ button:focus {
   width: 100%;
   height: 100%;
   background-color: white;
+}
+
+.sideBar .advice {
+  -ms-grid-row: 3;
+  grid-row: 3;
+  justify-self: stretch;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10%;
+  font-size: .9em;
+  font-weight: lighter;
+  letter-spacing: .3em;
+  line-height: 2em;
 }
 
 .links {
@@ -844,7 +870,7 @@ button:focus {
   left: 50%;
   -webkit-transform: translate(-50%, -54%);
           transform: translate(-50%, -54%);
-  color: #f8c878;
+  color: #fbc86f;
   z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -949,7 +975,6 @@ button:focus {
 .section--hero .text {
   -ms-grid-column-align: center;
       justify-self: center;
-  color: #fff;
   position: relative;
   z-index: 11;
 }
@@ -1008,10 +1033,10 @@ button:focus {
   font-weight: bold;
   font-size: 0.9em;
   letter-spacing: initial;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
 .socials ul li a:hover .icon, .socials ul li a:focus .icon,
