@@ -71,10 +71,16 @@ export default class Keyboard extends Component {
     }
 
     componentDidMount() {
-        document.body.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('key') && !e.target.classList.contains('keyboard'))
-                this.toggleEditMode(false)
-        })
+        document.body.addEventListener('click', this.onWindowClick)
+    }
+
+    componentWillUnmount() {
+        document.body.removeEventListener('click', this.onWindowClick)
+    }
+
+    onWindowClick = (e) => {
+        if (!e.target.classList.contains('key') && !e.target.classList.contains('keyboard'))
+            this.toggleEditMode(false)
     }
 
     onMouseDown = () => {

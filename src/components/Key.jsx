@@ -27,37 +27,49 @@ export default class key extends Component {
     componentDidMount() {
 
         //events onkey press
-        document.body.addEventListener('keypress', (e) => {
-            let key = e.key.toUpperCase()
-            if (this.props.editMode) {
-                if (this.state.edit) {
-                    let triggerKey;
-                    if (!this.state.triggerKey.includes(key)) {
-                        triggerKey = this.state.triggerKey.concat(key)
-                    }
-                    else {
-                        triggerKey = this.state.triggerKey.filter(element => element !== key)
-                    }
-                    this.setState({ triggerKey, edit: false })
-                }
-            }
-            else {
-                if (this.state.triggerKey.includes(key) && !this.state.keyPressed)
-                    this.setState({ keyPressed: true, activeKey: key })
-            }
-        })
-        document.body.addEventListener('keyup', (e) => {
-            let key = e.key.toUpperCase()
-            if (this.props.editMode) {
-            } else
-                if (this.state.activeKey === key && this.state.keyPressed)
-                    this.setState({ keyPressed: false, activeKey: false })
-        })
+        document.body.addEventListener('keypress', this.onKeyPressed)
+        document.body.addEventListener('keyup', this.onKeyUp)
 
-        document.body.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('key') && !e.target.classList.contains('keyboard'))
-                this.setState({ edit: false })
-        })
+        document.body.addEventListener('click', this.onWindowClick)
+    }
+
+    componentWillUnmount() {
+        document.body.removeEventListener('keypress', this.onKeyPressed)
+        document.body.removeEventListener('keyup', this.onKeyUp)
+        document.body.removeEventListener('click', this.onWindowClick)
+    }
+
+    onWindowClick = (e) => {
+        if (!e.target.classList.contains('key') && !e.target.classList.contains('keyboard'))
+            this.setState({ edit: false })
+    }
+
+    onKeyPressed = (e) => {
+        let key = e.key.toUpperCase()
+        if (this.props.editMode) {
+            if (this.state.edit) {
+                let triggerKey;
+                if (!this.state.triggerKey.includes(key)) {
+                    triggerKey = this.state.triggerKey.concat(key)
+                }
+                else {
+                    triggerKey = this.state.triggerKey.filter(element => element !== key)
+                }
+                this.setState({ triggerKey, edit: false })
+            }
+        }
+        else {
+            if (this.state.triggerKey.includes(key) && !this.state.keyPressed)
+                this.setState({ keyPressed: true, activeKey: key })
+        }
+    }
+
+    onKeyUp = (e) => {
+        let key = e.key.toUpperCase()
+        if (this.props.editMode) {
+        } else
+            if (this.state.activeKey === key && this.state.keyPressed)
+                this.setState({ keyPressed: false, activeKey: false })
     }
 
     onMouseDown = (e) => {
