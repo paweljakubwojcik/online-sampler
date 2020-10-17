@@ -10,12 +10,14 @@ export default function Header() {
 
     return (
         <header className={`mainHeader ${isSubpage ? 'mainHeader--subPage' : ''}`}>
-            <h1 className='headerContainer' >
-                <Link to='/' className='logo logo--left' onClick={changeOrientation}>Online</Link>
-                <Link to='/' className='logo logo--right' onClick={changeOrientation}>Mellotron </Link>
-            </h1>
+            <div className='headerContainer' >
+                <Link to='/' className='logo logo--left' onClick={changeOrientation}><h1> Online</h1></Link>
+                <Link to='/' className='logo logo--right' onClick={changeOrientation}><h1>Mellotron</h1></Link>
+                <p>Awake creativity</p>
+            </div>
+            <span className='placeHolder'></span>
             <Links />
-            <p>Awake creativity</p>
+
         </header>
     )
 }
