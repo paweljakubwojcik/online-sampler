@@ -1,10 +1,7 @@
-export const changeOrientation = (e) => {
+export const changeOrientation = () => {
 
     let path = document.location.pathname
-    if (e.type === 'click')
-        path = e.target.pathname || '/'
-    console.log(e.target.pathname)  // do wymiany na coś co działa razem z routerem 
-
+    
 
     let html = document.querySelector('html')
     let body = document.querySelector('body')

@@ -4,6 +4,8 @@ import Keyboard from './Keyboard'
 import BackgroundImage from './layouts/BackgroungImage'
 import SampleMenu from './SampleMenu'
 
+import { changeOrientation } from '../globalMethods'
+
 
 import { Howl } from 'howler';
 
@@ -35,6 +37,10 @@ export default class Mellotron extends Component {
 
     componentDidMount() {
         this.HOWLER.update(this.state.instrument.src)
+    }
+
+    componentDidUpdate() {
+        changeOrientation()
     }
 
 
