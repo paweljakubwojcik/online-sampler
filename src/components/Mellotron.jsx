@@ -114,6 +114,8 @@ export default class Mellotron extends Component {
                     this.howler.fade(0, 0.5, 100, id)
                 },
                 onloaderror: (id, e) => {
+                    if (e === 4)
+                        e = 'network error'
                     this.appendError(e)
                 },
                 onplayerror: (id, e) => {

@@ -3,8 +3,8 @@ import React from 'react'
 
 const melodies = [
     'NVV BCC XVN NVV BCC XVX',
-    'NVV BCC XVN NVV 2',
-    'NVV BCC XVN NVV 3'
+    'V F V F V Z C X Y',
+    'DZD 5 CDCD Z CDC5 U YUY6UY '
 ]
 
 function getRandomMelody() {
