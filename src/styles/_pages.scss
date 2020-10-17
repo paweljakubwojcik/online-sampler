@@ -10,31 +10,7 @@
         margin: 0;
     }
 
-    .back {
-        margin: 3% auto 3% 5%;
-        position: relative;
-        display: inline-block;
-
-        &::before {
-            content: "";
-            position: absolute;
-            bottom: 25%;
-            left: -10px;
-            display: block;
-            width: 1em;
-            height: 1em;
-
-            transform: rotateZ(45deg) translate(0);
-            transition: transform 0.3s;
-
-            border-bottom: 1px solid #343434;
-            border-left: 1px solid #343434;
-        }
-
-        &:hover::before {
-            transform: rotateZ(45deg) translate(-50%, 50%);
-        }
-    }
+    
 }
 
 .subHeader {
@@ -302,4 +278,30 @@
 
 .section--footer {
     min-height: initial;
+    align-items: center;
+    .back {
+        margin: 3% auto 3% 5%;
+        position: relative;
+        display: inline-block;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 25%;
+            left: -10px;
+            display: block;
+            width: 1em;
+            height: 1em;
+
+            transform: rotateZ(45deg) translate(0);
+            transition: transform 0.3s;
+
+            border-bottom: 1px solid #343434;
+            border-left: 1px solid #343434;
+        }
+
+        &:hover::before {
+            transform: rotateZ(45deg) translate(-50%, 50%);
+        }
+    }
 }

@@ -48,10 +48,6 @@ export default function LearnMore() {
                         href={'https://www.youtube.com/c/Taetro/about'}
                     ></YTChannel>
                 </div>
-
-
-
-
             </section>
         </SubPage>
     )

@@ -805,35 +805,6 @@ button:focus {
   margin: 0;
 }
 
-.page .back {
-  margin: 3% auto 3% 5%;
-  position: relative;
-  display: inline-block;
-}
-
-.page .back::before {
-  content: "";
-  position: absolute;
-  bottom: 25%;
-  left: -10px;
-  display: block;
-  width: 1em;
-  height: 1em;
-  -webkit-transform: rotateZ(45deg) translate(0);
-          transform: rotateZ(45deg) translate(0);
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
-  border-bottom: 1px solid #343434;
-  border-left: 1px solid #343434;
-}
-
-.page .back:hover::before {
-  -webkit-transform: rotateZ(45deg) translate(-50%, 50%);
-          transform: rotateZ(45deg) translate(-50%, 50%);
-}
-
 .subHeader {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1202,6 +1173,38 @@ button:focus {
 
 .section--footer {
   min-height: initial;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section--footer .back {
+  margin: 3% auto 3% 5%;
+  position: relative;
+  display: inline-block;
+}
+
+.section--footer .back::before {
+  content: "";
+  position: absolute;
+  bottom: 25%;
+  left: -10px;
+  display: block;
+  width: 1em;
+  height: 1em;
+  -webkit-transform: rotateZ(45deg) translate(0);
+          transform: rotateZ(45deg) translate(0);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  border-bottom: 1px solid #343434;
+  border-left: 1px solid #343434;
+}
+
+.section--footer .back:hover::before {
+  -webkit-transform: rotateZ(45deg) translate(-50%, 50%);
+          transform: rotateZ(45deg) translate(-50%, 50%);
 }
 
 @media screen and (min-width: 3000px) {
