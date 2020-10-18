@@ -9,8 +9,6 @@
     h1 {
         margin: 0;
     }
-
-    
 }
 
 .subHeader {
@@ -22,13 +20,19 @@
     overflow: hidden;
     width: 100%;
     padding: 1em $pagePadding;
-    background-color: $sideBarColor;
 
     h2 {
         position: relative;
         z-index: 2;
         letter-spacing: 0.6em;
         margin: 0;
+    }
+    .background {
+        background-color: $sideBarColor;
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
     }
     .label {
         font-weight: bold;
@@ -70,6 +74,7 @@
     min-height: 70vmin;
     width: 100%;
     overflow: hidden;
+    opacity: 0;
 
     padding: 0 $pagePadding;
 

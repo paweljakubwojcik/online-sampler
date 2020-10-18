@@ -833,7 +833,6 @@ button:focus {
   overflow: hidden;
   width: 100%;
   padding: 1em 10%;
-  background-color: white;
 }
 
 .subHeader h2 {
@@ -841,6 +840,14 @@ button:focus {
   z-index: 2;
   letter-spacing: 0.6em;
   margin: 0;
+}
+
+.subHeader .background {
+  background-color: white;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .subHeader .label {
@@ -892,6 +899,7 @@ button:focus {
   min-height: 70vmin;
   width: 100%;
   overflow: hidden;
+  opacity: 0;
   padding: 0 10%;
 }
 
