@@ -14,35 +14,35 @@ export default function Socials() {
         <section className="section socials">
             <ul>
                 <li>
-                    <a href="http://instagram.com">
+                    <a target='blank' href="https://www.instagram.com/pafefeu/">
                         <IconSocial icon={faInstagramSquare}>
                             Follow
                         </IconSocial>
                     </a>
                 </li>
                 <li>
-                    <a href="http://instagram.com">
+                    <a target='blank' href="https://www.facebook.com/profile.php?id=100003889069327">
                         <IconSocial icon={faFacebookSquare}>
                             Like
                         </IconSocial>
                     </a>
                 </li>
                 <li>
-                    <a href="http://instagram.com">
+                    <a target='blank' href="https://github.com/paweljakubwojcik">
                         <IconSocial icon={faGitSquare}>
                             Collaborate
                         </IconSocial>
                     </a>
                 </li>
                 <li>
-                    <a href="http://instagram.com">
+                    <a target='blank' href="https://www.youtube.com/channel/UCHInPtspnooQOVfqxFijunA?view_as=subscriber">
                         <IconSocial icon={faYoutubeSquare}>
                             Watch
                         </IconSocial>
                     </a>
                 </li>
                 <li>
-                    <a href="http://instagram.com">
+                    <a target='blank' href="https://www.linkedin.com/in/pawe%C5%82-w%C3%B3jcik-154ba81a2/">
                         <IconSocial icon={faLinkedin}>
                             Link In
                     </IconSocial>
