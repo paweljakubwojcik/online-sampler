@@ -16,6 +16,8 @@ import VocalSample from '../sounds/VocalSample.mp3'
 import SynthSample from '../sounds/SynthSample.mp3'
 import PadsSample from '../sounds/PadsSample.mp3'
 
+
+
 export default class Mellotron extends Component {
 
     constructor(props) {
@@ -163,7 +165,9 @@ export default class Mellotron extends Component {
             <React.Fragment>
                 <SampleMenu changeInstrument={this.changeInstrument} instrument={this.state.instrument.name} />
                 <Keyboard howler={this.HOWLER} errors={this.state.errors} loading={this.state.loading} loadingProgress={this.state.loadingProgress} />
-                <BackgroundImage instrument={this.state.instrument.name} addCustomSound={this.addCustomSound} />
+
+                        <BackgroundImage instrument={this.state.instrument.name} addCustomSound={this.addCustomSound} />
+
             </React.Fragment>
         )
     }
