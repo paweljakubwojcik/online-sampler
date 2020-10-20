@@ -21,10 +21,9 @@ export default function About() {
             </article>
             <article className='section section--mid'>
                 <section className='text'>
-                    he Mellotron uses the same concept as a sampler, but generates its sound using analogue samples recorded on audio tape rather than digital samples.
-                    Since OnlineMellotron is a digital creation it obviously is using digital samples, but way of playing samples is same as in it originator. Sound isn't looped, and diffrent pitch is achieved by varying the speed of sample.
-                    Modern samples, or DAWs (digital audio workstations) can achievie much more.
-                    To learn more about music production click here
+                    Mellotron uses the same concept as a sampler, but generates its sound using analogue samples recorded on audio tape rather than digital samples.
+                    Since OnlineMellotron is a digital creation it's obviously using digital samples, but way of playing them is same as in it originator. Sounds aren't looped, and diffrent pitch is achieved by varying the speed of sample.
+                     
                 </section>
                 <img src={Tape} alt="Tape" />
             </article>

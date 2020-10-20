@@ -16,15 +16,15 @@ export default function Creators() {
             <section className='section section--head section--hero' >
                 <img src={Hero} alt="HeroImage" className='heroImage' />
                 <section className='text'>
-                    I'm a {age} years old front dev from
+                    I'm a {age} years old, self taught, web developer from
                     Poland, I also like to make
                     music, and I'm eager to share my
-                    passion for creating music.
+                    passion for it.
                 </section>
             </section>
             <section className='section section--mid'>
                 <section className='text'>
-                    This is my first project build using React
+                    This is my first project build with React
                 </section>
                 <img src={ReactLogo} alt="Tape" />
             </section>
