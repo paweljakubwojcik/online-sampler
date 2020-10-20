@@ -1,7 +1,8 @@
 
 # Online sampler
 
-Online Sampler is a little project written using React framework.
+Online Sampler is a little project written using React framework.  
+:musical_keyboard: [Live demo](https://paweljakubwojcik.github.io/online-sampler/)
 
 ## Installation
 
