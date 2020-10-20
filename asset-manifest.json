@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/online-sampler/static/css/main.0184978d.chunk.css",
+    "main.js": "/online-sampler/static/js/main.257d35bb.chunk.js",
+    "main.js.map": "/online-sampler/static/js/main.257d35bb.chunk.js.map",
+    "runtime-main.js": "/online-sampler/static/js/runtime-main.270aab4b.js",
+    "runtime-main.js.map": "/online-sampler/static/js/runtime-main.270aab4b.js.map",
+    "static/js/2.b6200399.chunk.js": "/online-sampler/static/js/2.b6200399.chunk.js",
+    "static/js/2.b6200399.chunk.js.map": "/online-sampler/static/js/2.b6200399.chunk.js.map",
+    "index.html": "/online-sampler/index.html",
+    "precache-manifest.10dc04d3f437ada448dd426f5a601edf.js": "/online-sampler/precache-manifest.10dc04d3f437ada448dd426f5a601edf.js",
+    "service-worker.js": "/online-sampler/service-worker.js",
+    "static/css/main.0184978d.chunk.css.map": "/online-sampler/static/css/main.0184978d.chunk.css.map",
+    "static/js/2.b6200399.chunk.js.LICENSE.txt": "/online-sampler/static/js/2.b6200399.chunk.js.LICENSE.txt",
+    "static/media/Ableton.png": "/online-sampler/static/media/Ableton.3e6ae130.png",
+    "static/media/Hero.png": "/online-sampler/static/media/Hero.2c6ee5ad.png",
+    "static/media/InTheMix.jpg": "/online-sampler/static/media/InTheMix.bf03e1a4.jpg",
+    "static/media/Mellotron.png": "/online-sampler/static/media/Mellotron.bdcf7f47.png",
+    "static/media/PadsSample.mp3": "/online-sampler/static/media/PadsSample.de0295b1.mp3",
+    "static/media/PianoSample.mp3": "/online-sampler/static/media/PianoSample.afa58736.mp3",
+    "static/media/Sanjay.jpg": "/online-sampler/static/media/Sanjay.02c75123.jpg",
+    "static/media/StringsSample.mp3": "/online-sampler/static/media/StringsSample.db30e431.mp3",
+    "static/media/SynthSample.mp3": "/online-sampler/static/media/SynthSample.ae231a4f.mp3",
+    "static/media/Teatro.jpg": "/online-sampler/static/media/Teatro.8c0ac374.jpg",
+    "static/media/VocalSample.mp3": "/online-sampler/static/media/VocalSample.d2f7b662.mp3",
+    "static/media/andrew.jpg": "/online-sampler/static/media/andrew.435f6b71.jpg",
+    "static/media/cassette-tape.svg": "/online-sampler/static/media/cassette-tape.d7282e40.svg",
+    "static/media/index.css": "/online-sampler/static/media/violin.3813a698.svg",
+    "static/media/react-logo.svg": "/online-sampler/static/media/react-logo.bddb70ec.svg",
+    "static/media/sound-wave.svg": "/online-sampler/static/media/sound-wave.78f9cb09.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.270aab4b.js",
+    "static/js/2.b6200399.chunk.js",
+    "static/css/main.0184978d.chunk.css",
+    "static/js/main.257d35bb.chunk.js"
+  ]
+}
