@@ -12,6 +12,6 @@ npm install
 ```
 
 ## third party packages used
-[Howler.js](https://github.com/goldfire/howler.js#documentation) - dealing with web audio API
+[Howler.js](https://github.com/goldfire/howler.js#documentation) - dealing with web audio API  
 [GSAP](https://greensock.com/docs/v3/GSAP/Tween) - animations
 
