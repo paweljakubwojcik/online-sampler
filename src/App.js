@@ -31,7 +31,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router>
+        <Router basename="/online-sampler">
           <Header />
           <Route exact path='/'>
             <SideBar />
