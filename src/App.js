@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
 } from "react-router-dom";
 import { changeOrientation } from './globalMethods'
 
@@ -14,6 +15,7 @@ import Mellotron from './components/Mellotron'
 import About from './components/pages/About'
 import Creators from './components/pages/Creators'
 import LearnMore from './components/pages/LearnMore'
+import Page404 from './components/pages/404'
 
 export default class App extends Component {
 
@@ -33,19 +35,24 @@ export default class App extends Component {
       <div className="App">
         <Router basename="/online-sampler">
           <Header />
-          <Route exact path='/'>
-            <SideBar />
-            <Mellotron />
-          </Route>
-          <Route path='/about'>
-            <About></About>
-          </Route>
-          <Route path='/creators'>
-            <Creators></Creators>
-          </Route>
-          <Route path='/learn-more'>
-            <LearnMore />
-          </Route>
+          <Switch>
+            <Route exact path='/'>
+              <SideBar />
+              <Mellotron />
+            </Route>
+            <Route path='/about'>
+              <About></About>
+            </Route>
+            <Route path='/creators'>
+              <Creators></Creators>
+            </Route>
+            <Route path='/learn-more'>
+              <LearnMore />
+            </Route>
+            <Route>
+              <Page404 />
+            </Route>
+          </Switch>
         </Router>
       </div>
     );
