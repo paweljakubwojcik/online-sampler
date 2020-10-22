@@ -19,10 +19,6 @@ import Page404 from './components/pages/404'
 
 export default class App extends Component {
 
-  state = {
-    app: 'mellotron' //can be mellotron or sampler
-  }
-
   componentDidMount() {
     window.addEventListener('resize', changeOrientation)
     window.addEventListener('load', changeOrientation)

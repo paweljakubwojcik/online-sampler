@@ -65,6 +65,7 @@ export default class Mellotron extends Component {
         },
         {
             name: 'Custom',
+            src: null
         }]
 
 

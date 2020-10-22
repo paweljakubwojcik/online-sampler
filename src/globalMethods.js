@@ -1,7 +1,12 @@
+
+
+/**
+ * change orientation from portrait to landscape for root dir of page,
+ * because main page is not suited to be in portrait on mobile devices
+ */
 export const changeOrientation = () => {
 
     let path = document.location.pathname
-    
 
     let html = document.querySelector('html')
     let body = document.querySelector('body')

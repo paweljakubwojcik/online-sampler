@@ -36,10 +36,6 @@ export default class Advice extends Component {
     ]
 
 
-
-
-
-
     getRandomAdvise = () => {
         let x = Math.floor(Math.random() * this.advices.length)
         if (x !== this.adviceIndex) {

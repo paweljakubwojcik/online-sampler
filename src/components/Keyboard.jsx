@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Key from './Key'
 import ErrorMessage from './ErrorMessage'
 
@@ -10,10 +11,10 @@ import ErrorMessage from './ErrorMessage'
 
 export default class Keyboard extends Component {
 
-/**
- * function for pure visual effect
- * afer each iteration of loading animation, key are 'loaded' in diffrent order
- */
+    /**
+     * function for pure visual effect
+     * afer each iteration of loading animation, key are 'loaded' in diffrent order
+     */
     assignNewLoadingOrder = () => {
         blackNotes.forEach(note => { note.loadingOrder = Math.random() * 24 })
         whiteNotes.forEach(note => { note.loadingOrder = Math.random() * 24 })
@@ -99,6 +100,12 @@ export default class Keyboard extends Component {
     }
 }
 
+Keyboard.propTypes = {
+    errors: PropTypes.arrayOf(PropTypes.string),
+    loading: PropTypes.bool,
+    loadingProgress: PropTypes.number
+}
+
 const notes = [
     { name: 'C1', defaultTriggerKeys: ['Q'] },
     { name: 'Db1', defaultTriggerKeys: ['2'] },
@@ -135,15 +142,28 @@ let whiteNotes = []
 let blackNotes = []
 
 // sortowanie klawiszy i przypisanie im poszczególnych wartośći do transponowania
-let i = -12;
-notes.forEach((note) => {
+
+notes.forEach((note, i) => {
+    i -= 12;
     if (note.name.length > 3) {
         blackNotes.push({ name: note.name, black: true })
     } else {
         if (note.name.length === 2)
-            whiteNotes.push({ name: note.name, defaultTriggerKeys: note.defaultTriggerKeys, black: false, transpose: i, loadingOrder: Math.random() * 24 })
+            whiteNotes.push({
+                name: note.name,
+                defaultTriggerKeys: note.defaultTriggerKeys,
+                black: false,
+                transpose: i,
+                loadingOrder: Math.random() * 24
+            })
         if (note.name.length === 3)
-            blackNotes.push({ name: note.name, defaultTriggerKeys: note.defaultTriggerKeys, black: true, transpose: i, loadingOrder: Math.random() * 24 })
-        i++;
+            blackNotes.push({
+                name: note.name,
+                defaultTriggerKeys: note.defaultTriggerKeys,
+                black: true,
+                transpose: i,
+                loadingOrder: Math.random() * 24
+            })
+
     }
 });
