@@ -25,17 +25,14 @@ export default class key extends Component {
 
 
     componentDidMount() {
-
-        //events onkey press
-        document.body.addEventListener('keypress', this.onKeyPressed)
-        document.body.addEventListener('keyup', this.onKeyUp)
-
+        document.body.addEventListener('keypress', this.handleKeyPressed)
+        document.body.addEventListener('keyup', this.hadleKeyUp)
         document.body.addEventListener('click', this.onWindowClick)
     }
 
     componentWillUnmount() {
-        document.body.removeEventListener('keypress', this.onKeyPressed)
-        document.body.removeEventListener('keyup', this.onKeyUp)
+        document.body.removeEventListener('keypress', this.handleKeyPressed)
+        document.body.removeEventListener('keyup', this.hadleKeyUp)
         document.body.removeEventListener('click', this.onWindowClick)
     }
 
@@ -44,7 +41,7 @@ export default class key extends Component {
             this.setState({ edit: false })
     }
 
-    onKeyPressed = (e) => {
+    handleKeyPressed = (e) => {
         let key = e.key.toUpperCase()
         if (this.props.editMode) {
             if (this.state.edit) {
@@ -64,7 +61,7 @@ export default class key extends Component {
         }
     }
 
-    onKeyUp = (e) => {
+    hadleKeyUp = (e) => {
         let key = e.key.toUpperCase()
         if (this.props.editMode) {
         } else
@@ -72,7 +69,7 @@ export default class key extends Component {
                 this.setState({ keyPressed: false, activeKey: false })
     }
 
-    onMouseDown = (e) => {
+    handleMouseDown = (e) => {
         if (e.ctrlKey) {
             this.setState(({ edit }) => { return { edit: !edit } })
             this.props.toggleEditMode(true)
@@ -84,17 +81,17 @@ export default class key extends Component {
                 this.setState({ clicked: true })
     }
 
-    onMouseUp = () => {
+    handleMouseUp = () => {
         if (this.state.clicked)
             this.setState({ clicked: false })
     }
 
-    onMouseEnter = () => {
+    handleMouseEnter = () => {
         if (this.props.keyboardActive)
             this.setState({ clicked: true })
     }
 
-    onMouseOut = () => {
+    handleMouseOut = () => {
         if (this.state.clicked)
             this.setState({ clicked: false })
     }
@@ -118,26 +115,26 @@ export default class key extends Component {
                     howler.stop(this.id)
                 })
                 howler.fade(0.5, 0, 50, this.id)
-
                 console.log(`${this.name} has stopped!!`)
             }
         }
     }
 
     render() {
+        let { isErrors, isLoading, editMode } = this.props
         return (
             <div id={this.name} onClick={this.onClick}
-                onMouseDown={this.onMouseDown}
-                onMouseUp={this.onMouseUp}
-                onMouseOut={this.onMouseOut}
-                onMouseEnter={this.onMouseEnter}
-                onTouchStart={this.onMouseDown}
-                onTouchEnd={this.onMouseUp}
+                onMouseDown={this.handleMouseDown}
+                onMouseUp={this.handleMouseUp}
+                onMouseOut={this.handleMouseOut}
+                onMouseEnter={this.handleMouseEnter}
+                onTouchStart={this.handleMouseDown}
+                onTouchEnd={this.handleMouseUp}
                 className={`key key--${this.black ? 'black' : 'white'} 
                     ${(this.state.keyPressed || this.state.clicked) ? 'key--active' : ''}
-                    ${(this.props.editMode) ? 'key--editable' : ''}
-                    ${(this.state.edit && this.props.editMode) ? 'key--edit' : ''}
-                    ${(this.props.errors || this.props.loading) ? 'key--loading' : ''}
+                    ${(editMode) ? 'key--editable' : ''}
+                    ${(this.state.edit && editMode) ? 'key--edit' : ''}
+                    ${(isErrors || isLoading) ? 'key--loading' : ''}
                     `}>
 
                 <div className="trigger">{

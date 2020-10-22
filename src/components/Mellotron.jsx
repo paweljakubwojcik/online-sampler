@@ -39,12 +39,8 @@ export default class Mellotron extends Component {
 
     componentDidMount() {
         this.HOWLER.update(this.state.instrument.src)
-    }
-
-    componentDidUpdate() {
         changeOrientation()
     }
-
 
     sounds = [
         {
@@ -162,13 +158,13 @@ export default class Mellotron extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <>
                 <SampleMenu changeInstrument={this.changeInstrument} instrument={this.state.instrument.name} />
                 <Keyboard howler={this.HOWLER} errors={this.state.errors} loading={this.state.loading} loadingProgress={this.state.loadingProgress} />
 
-                        <BackgroundImage instrument={this.state.instrument.name} addCustomSound={this.addCustomSound} />
+                <BackgroundImage instrument={this.state.instrument.name} addCustomSound={this.addCustomSound} />
 
-            </React.Fragment>
+            </>
         )
     }
 }
