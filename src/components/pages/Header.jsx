@@ -8,7 +8,7 @@ export default function Header(props) {
             <div className="line"></div>
             <div className="background" style={{ opacity: 0 }}></div>
             <label className="label">
-                {bigWord.map(letter => <div key={letter} className='letter'>{letter}</div>)}
+                {bigWord.map((letter, i) => <div key={i} className='letter'>{letter}</div>)}
             </label>
         </div>
     )

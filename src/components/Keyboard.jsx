@@ -3,11 +3,6 @@ import PropTypes from 'prop-types'
 import Key from './Key'
 import ErrorMessage from './ErrorMessage'
 
-//refactor needed
-//add type props
-// rename methods on -> handle
-//wywalić to co nie musi byc własciwością obiektu
-
 
 export default class Keyboard extends Component {
 
