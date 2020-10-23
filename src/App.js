@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import { changeOrientation } from './globalMethods'
 
+
+
 //components
 import Header from './components/layouts/Header'
 import SideBar from './components/layouts/SideBar'
@@ -16,6 +18,10 @@ import About from './components/pages/About'
 import Creators from './components/pages/Creators'
 import LearnMore from './components/pages/LearnMore'
 import Page404 from './components/pages/404'
+
+//config
+import config from '../package.json'
+const rootAddres = config.homepage.split('/').pop()
 
 export default class App extends Component {
 
@@ -28,7 +34,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router>
+        <Router basename={rootAddres}>
           <Header />
           <Switch>
             <Route exact path='/'>

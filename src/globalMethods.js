@@ -1,4 +1,5 @@
-
+import config from '../package.json'
+const rootAddres = config.homepage.split('/').pop()
 
 /**
  * change orientation from portrait to landscape for root dir of page,
@@ -11,7 +12,7 @@ export const changeOrientation = () => {
     let html = document.querySelector('html')
     let body = document.querySelector('body')
     let app = document.querySelector('.App')
-    if (path === '/' && window.matchMedia('(orientation: portrait)').matches) {
+    if (path === `/${rootAddres}/` && window.matchMedia('(orientation: portrait)').matches) {
         html.style.transform = ' rotate(90deg)'
         body.style.width = '100vh'
         body.style.height = '100vw'
