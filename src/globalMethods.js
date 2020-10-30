@@ -1,5 +1,5 @@
-import config from '../package.json'
-const rootAddres = config.homepage.split('/').pop()
+import { homepage } from '../package.json'
+const rootAddres = homepage.split('/').pop()
 
 /**
  * change orientation from portrait to landscape for root dir of page,

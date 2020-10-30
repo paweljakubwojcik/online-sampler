@@ -161,7 +161,7 @@
                     font-weight: bold;
                     font-size: 0.9em;
                     letter-spacing: initial;
-                    transition: transform 0.3s;
+                    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 }
 
                 &:hover,
@@ -299,7 +299,7 @@
             height: 1em;
 
             transform: rotateZ(45deg) translate(0);
-            transition: transform 0.3s;
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
             border-bottom: 1px solid #343434;
             border-left: 1px solid #343434;
