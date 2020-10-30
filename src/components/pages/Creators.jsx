@@ -6,10 +6,11 @@ import Socials from './Socials'
 import Hero from '../../styles/png/Hero.png'
 import ReactLogo from '../../styles/svg/react-logo.svg'
 
+const date = new Date()
+const birthday = new Date(1999, 8, 6)
+const age = date.getFullYear() - birthday.getFullYear();
+
 export default function Creators() {
-    let date = new Date()
-    let birthday = new Date(1999, 8, 6)
-    let age = date.getFullYear() - birthday.getFullYear();
     return (
         <SubPage name='creators'>
             <Header>Who made it?</Header>
