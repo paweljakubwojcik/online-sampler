@@ -13,4 +13,4 @@ Online Sampler is a little project written using React framework.
 * [Howler.js](https://github.com/goldfire/howler.js#documentation) - dealing with web audio API  
 * [GSAP](https://greensock.com/docs/v3/GSAP/Tween) - animations
 
-![online-mellotron](https://user-images.githubusercontent.com/46058997/98310263-c68f4680-1fcc-11eb-8bfe-85eb238609e8.png)
+[![online-mellotron](https://user-images.githubusercontent.com/46058997/98310263-c68f4680-1fcc-11eb-8bfe-85eb238609e8.png)](https://paweljakubwojcik.github.io/online-sampler/)
